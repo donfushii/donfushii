@@ -13,7 +13,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/DonFushii/">
-        <img title="🔥 Get streak stats for your profile at git.io/streak-stats" alt="vxrip's streak" src="https://github-readme-streak-stats.herokuapp.com/?user=vxrip&theme=black-ice&hide_border=true&stroke=0000&background=060A0CD0"/>
+        <img title="🔥 Get streak stats for your profile at git.io/streak-stats" alt="DonFushii's streak" src="https://github-readme-streak-stats.herokuapp.com/?user=DonFushii&theme=monokai&hide_border=true&stroke=0000&background=060A0CD0"/>
     </a>
 </p>
 
@@ -35,9 +35,6 @@
 <br/>
 
 <a href="https://github.com/Ashutosh00710/github-readme-activity-graph"><img alt="vxrip's Activity Graph" src="https://github-readme-activity-graph.cyclic.app/graph?username=vxrip&bg_color=0d0c0c&color=5cfcff&line=00ccff&point=1a4675&area=true&hide_border=true" /></a>
-
-
-<a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=DonFushii&theme=monokai" alt="GitHub Streak" /></a>
 
 
 ## ❤ Views and Followers
