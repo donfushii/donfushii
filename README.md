@@ -15,6 +15,7 @@
 ## > 📊 My Github Stats
 
   <br/>
+  <p align="center">
     <a href="https://github.com/DonFushii"><img alt="Fushii's Stats" src="https://github-readme-stats.vercel.app/api?username=DonFushii&show_icons=true&count_private=true&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=060A0CD0" /></a>
   <a href="https://github.com/DonFushii"><img alt="Fushii's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DonFushii&langs_count=8&count_private=true&layout=compact&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=060A0CD0" /></a>
   <br/>
