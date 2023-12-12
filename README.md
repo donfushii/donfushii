@@ -2,7 +2,7 @@
 
 <br/>
 <p align="center">
-<img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=22&lines=Hello+@everyone...;I'm+Fushii,+owner+of;Cryptonic's+Developments"/>
+<img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=26&lines=Cryptonic's+Developments"/>
 </p>
 <p align="center">
     <a href="https://github.com/DonFushii/">
