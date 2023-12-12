@@ -12,8 +12,10 @@
     </a>
 </p>
 
+
 <p align="center">
 <img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=30&lines=Github+Stats"/>
+
 
   <br/>
   <p align="center">
@@ -22,5 +24,3 @@
   <br/>
   <b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
 </p>
-
-<p align='center'><a href="#"><img height=auto width=auto border-radius=20% src="https://discord.c99.nl/widget/theme-1/737174797334741056.png" height="1000px"/></a></p>
