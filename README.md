@@ -4,7 +4,7 @@
 
 <br/>
 <p align="center">
-<img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=22&lines=Hello+@everyone;I'm+Fushii...;Owner+of+Cryptonic's;I+know+Python;And+more+languages"/>
+<img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=22&lines=Hello+@everyone;I'm+Fushii...;Owner+of+Cryptonic's;I+know+Python+and+more+languages"/>
 </p>
 <p align="center">
     <a href="https://github.com/DonFushii/">
