@@ -13,9 +13,6 @@
 </p>
 
 
-<p align="center">
-<img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=30&lines=Github+Stats"/>
-
 
   <br/>
   <p align="center">
