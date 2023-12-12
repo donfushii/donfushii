@@ -4,7 +4,6 @@
 
 
 <h1 align="center">Owner of Cryptonic's</h1>
-<a href="https://discord.gg/..." align="center">Join Our Discord Server!</a>
 
 
 <br/>
@@ -13,7 +12,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/DonFushii/">
-        <img title="🔥 Get streak stats for your profile at git.io/streak-stats" alt="DonFushii's streak" src="https://github-readme-streak-stats.herokuapp.com/?user=DonFushii&theme=monokai&hide_border=true&stroke=0000&background=060A0CD0&fill=F1F1EB"/>
+        <img title="🔥 Get streak stats for your profile at git.io/streak-stats" alt="DonFushii's streak" src="https://github-readme-streak-stats.herokuapp.com/?user=DonFushii&theme=monokai&hide_border=true&stroke=0000&background=060A0CD0"/>
     </a>
 </p>
 
