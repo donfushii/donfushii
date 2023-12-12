@@ -7,7 +7,7 @@
     <a href="https://github.com/Meghna-DAS/github-profile-views-counter">
     <img src="https://komarev.com/ghpvc/?username=DonFushii&color=EB1F6A&base=30">
 </a>
-<a href="https://github.com/DonFushii?tab=followers"><img src="https://img.shields.io/github/followers/DonFushii?label=Followers&style=social&color=060A0CD0" alt="GitHub Badge"></a>
+<a href="https://github.com/DonFushii?tab=followers"><img src="https://img.shields.io/github/followers/DonFushii?label=Followers&style=flat&color=060A0CD0"></a>
  
 </p>
 <p align="center">
