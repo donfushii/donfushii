@@ -16,12 +16,6 @@
     </a>
 </p>
 
-## 🚀 Languages and Tools:
-
-<p align="left"> 
-    <a href="https://www.python.org" target="_blank"> <img src="https://img.icons8.com/color/48/000000/python.png"/> </a> 
-</p>
-
 ## 📊 My Github Stats
 
   <br/>
@@ -34,10 +28,3 @@
 <br/>
 
 <a href="https://github.com/Ashutosh00710/github-readme-activity-graph"><img alt="vxrip's Activity Graph" src="https://github-readme-activity-graph.cyclic.app/graph?username=vxrip&bg_color=0d0c0c&color=5cfcff&line=00ccff&point=1a4675&area=true&hide_border=true" /></a>
-
-
-## ❤ Views and Followers
-<a href="https://github.com/Meghna-DAS/github-profile-views-counter">
-    <img src="https://komarev.com/ghpvc/?username=vxrip">
-</a>
-<a href="https://github.com/vxrip?tab=followers"><img src="https://img.shields.io/github/followers/vxrip?label=Followers&style=social" alt="GitHub Badge"></a>
