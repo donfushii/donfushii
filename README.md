@@ -5,7 +5,7 @@
 <img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=30&lines=Cryptonic's+Developments"/>
     <p align="center">
     <a href="https://github.com/Meghna-DAS/github-profile-views-counter">
-    <img src="https://komarev.com/ghpvc/?username=DonFushii&color=EB1F6A&base=120">
+    <img src="https://komarev.com/ghpvc/?username=DonFushii&color=EB1F6A&base=30">
 </a>
 <a href="https://github.com/DonFushii?tab=followers"><img src="https://img.shields.io/github/followers/DonFushii?label=Followers&style=social" alt="GitHub Badge"></a>
     
