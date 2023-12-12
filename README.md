@@ -1,6 +1,5 @@
 </details>
 
-<br/>
 <p align="center">
 <img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=30&lines=Cryptonic's+Developments"/>
     <p align="center">
@@ -25,6 +24,3 @@
 </p>
 
 <p align='center'><a href="#"><img height=auto width=auto border-radius=20% src="https://discord.c99.nl/widget/theme-1/737174797334741056.png" height="1000px"/></a></p>
-
-<br/>
-<br/>
