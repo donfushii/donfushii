@@ -7,10 +7,8 @@
     <a href="https://github.com/Meghna-DAS/github-profile-views-counter">
     <img src="https://komarev.com/ghpvc/?username=DonFushii&color=EB1F6A&base=30">
 </a>
-<a href="https://github.com/DonFushii?tab=followers"><img src="https://img.shields.io/github/followers/DonFushii?label=Followers&style=social" alt="GitHub Badge"></a>
-
-<a href="https://github.com/DonFushii?tab=followers"><img src="https://img.shields.io/badge/just%20the%20message-8A2BE2" alt="GitHub Badge"></a>
-    
+<a href="https://github.com/DonFushii?tab=followers"><img src="https://img.shields.io/github/followers/DonFushii?060A0CD0&label=Followers&style=social" alt="GitHub Badge"></a>
+ 
 </p>
 <p align="center">
     <a href="https://github.com/DonFushii/">
