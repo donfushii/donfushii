@@ -1,14 +1,10 @@
 </details>
 
-<p align='center'><a href="#"><img height=auto width=auto src="https://discord.c99.nl/widget/theme-1/737174797334741056.png" height="1000px"/></a></p>
-
-
 <h1 align="center">Owner of Cryptonic's</h1>
-
 
 <br/>
 <p align="center">
-<img src="https://readme-typing-svg.herokuapp.com?color=5BCDEC&center=true&size=22&lines=Hi+everyone;I+;I'm+Fushii;Learning+web-development;Python+and+more"/>
+<img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=22&lines=Hi+everyone;I+;I'm+Fushii;Learning+web-development;Python+and+more"/>
 </p>
 <p align="center">
     <a href="https://github.com/DonFushii/">
@@ -19,8 +15,8 @@
 ## > 📊 My Github Stats
 
   <br/>
-    <a href="https://github.com/DonFushii"><img alt="Fushii's Stats" src="https://github-readme-stats.vercel.app/api?username=DonFushii&show_icons=true&count_private=true&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=0D1117" /></a>
-  <a href="https://github.com/DonFushii"><img alt="Fushii's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DonFushii&langs_count=8&count_private=true&layout=compact&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=0D1117" /></a>
+    <a href="https://github.com/DonFushii"><img alt="Fushii's Stats" src="https://github-readme-stats.vercel.app/api?username=DonFushii&show_icons=true&count_private=true&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=060A0CD0" /></a>
+  <a href="https://github.com/DonFushii"><img alt="Fushii's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=DonFushii&langs_count=8&count_private=true&layout=compact&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=060A0CD0" /></a>
   <br/>
   <b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
 
