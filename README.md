@@ -12,7 +12,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/DonFushii/">
-        <img title="discord.gg/" alt="Fushii's Streak" src="https://github-readme-streak-stats.herokuapp.com/?user=DonFushii&theme=monokai&hide_border=true&stroke=0000&background=060A0CD0"/>
+        <img title="discord.gg/" alt="Fushii's Streak" src="https://github-readme-streak-stats.herokuapp.com/?user=DonFushii&theme=monokai&currStreakNum=F1F1EB&currStreakLabel=EB1F6A&hide_border=true&stroke=0000&background=060A0CD0"/>
     </a>
 </p>
 
