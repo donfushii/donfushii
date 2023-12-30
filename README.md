@@ -21,3 +21,9 @@
   <br/>
   <b>> Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
 </p>
+
+
+<p align="center">
+<a href="https://github.com/donfushii/"><img alt="Cute Count" 
+src="https://count.getloli.com/get/@README?theme=rule34" />
+</a>
