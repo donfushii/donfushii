@@ -1,9 +1,6 @@
 </details>
 
 <p align="center">
-<img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=30&lines=Cryptonic's+Developments"/>
-
-<p align="center">
   <a href="..." >
    <img src="https://lanyard.kyrie25.me/api/737174797334741056?waveColor=8B8BFA&waveSpotifyColor=B48EF7&gradient=7E37F9-B48EF7-E568C4&imgStyle=square"  />
   </a>
