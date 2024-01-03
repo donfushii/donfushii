@@ -5,13 +5,10 @@
 <h1 align="center"> 
 <img src="https://github.com/donfushii/donfushii/blob/main/Name.svg" width="600px"></h1>
 
-<br/>
 <p align="center">
-  <a href="..." >
+  <a href="https://discord.com/users/738748102311280681" >
    <img src="https://lanyard.kyrie25.me/api/737174797334741056?waveColor=8B8BFA&waveSpotifyColor=B48EF7&gradient=7E37F9-B48EF7-E568C4&imgStyle=square"/>
   </a>
-  <br/>
-</p>
 
 
   <br/>
@@ -22,7 +19,13 @@
 </p>
 
 
-<p align="center">
+<p align="right">
 <a href="https://github.com/donfushii/"><img alt="Cute Count" 
 src="https://count.getloli.com/get/@README?theme=rule34" />
 </a>
+
+```
+
+People who visit my profile :3.
+
+```
