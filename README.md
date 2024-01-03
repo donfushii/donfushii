@@ -14,12 +14,8 @@
 
 -->
 
-
-<br/>
-  <p align="center">
+<p align="center">
   <a href="https://github.com/donfushii"><img alt="Fushii's Stats" src="https://github-readme-stats.vercel.app/api?username=donfushii&show_icons=true&count_private=true&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=060A0CD0" /></a>
-  <br/>
-  <b>> Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
 </p>
 
 
