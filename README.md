@@ -1,5 +1,8 @@
 </details>
 
+<h1 align="center"> 
+<img src="https://github.com/RK1905101/RK1905101/blob/master/Name.svg" width="600px"></h1>
+
 <p align="center">
   <a href="..." >
    <img src="https://lanyard.kyrie25.me/api/737174797334741056?waveColor=8B8BFA&waveSpotifyColor=B48EF7&gradient=7E37F9-B48EF7-E568C4&imgStyle=square"  />
