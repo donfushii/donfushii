@@ -1,7 +1,5 @@
 </details>
 
-<h1 align="center">Hey, I'm <a href="https://github.com/donfushii">Fushii</a>... Welcome to my profile!</h1>
-
 <p align="center">
   <a href="..." >
    <img src="https://lanyard.kyrie25.me/api/737174797334741056?waveColor=8B8BFA&waveSpotifyColor=B48EF7&gradient=7E37F9-B48EF7-E568C4&imgStyle=square"  />
@@ -19,7 +17,6 @@
   <br/>
   <p align="center">
     <a href="https://github.com/donfushii"><img alt="Fushii's Stats" src="https://github-readme-stats.vercel.app/api?username=donfushii&show_icons=true&count_private=true&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=060A0CD0" /></a>
-  <a href="https://github.com/donfushii"><img alt="Fushii's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=donfushii&langs_count=8&count_private=true&layout=compact&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=060A0CD0" /></a>
   <br/>
   <b>> Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
 </p>
