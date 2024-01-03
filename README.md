@@ -20,7 +20,7 @@
 
 
 <p align="center">
-  PEOPLE WHO VISIT MY PROFILE:
+  **PEOPLE WHO VISIT MY PROFILE:**
 </p>
 
 
