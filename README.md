@@ -1,7 +1,7 @@
 </details>
 
 <h1 align="center"> 
-<img src="https://github.com/donfushii/donfushii/blob/master/Name.svg" width="600px"></h1>
+<img src="https://github.com/donfushii/donfushii/blob/main/Name.svg" width="600px"></h1>
 
 <p align="center">
   <a href="..." >
