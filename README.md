@@ -24,7 +24,7 @@
 src="https://count.getloli.com/get/@README?theme=rule34" />
 </a>
 
-```
+```yaml
 
 People who visit my profile :3.
 
