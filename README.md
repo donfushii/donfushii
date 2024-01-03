@@ -2,9 +2,11 @@
 
 <p align="center">
 <img src="https://readme-typing-svg.herokuapp.com?color=EB1F6A&center=true&size=30&lines=Cryptonic's+Developments"/>
-    <p align="center">
-<a href="https://github.com/donfushii?tab=followers"><img src="https://img.shields.io/github/followers/donfushii?label=Followers&style=flat&color=EB1F6A&labelColor=060A0CD0"></a>
- 
+    
+  <a href="..." >
+   <img src="https://lanyard.kyrie25.me/api/737174797334741056?waveColor=8B8BFA&waveSpotifyColor=B48EF7&gradient=7E37F9-B48EF7-E568C4&imgStyle=square"  />
+  </a>
+  
 </p>
 <p align="center">
     <a href="https://github.com/donfushii/">
