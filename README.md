@@ -20,6 +20,11 @@
 
 
 <p align="center">
+  PEOPLE WHO VISIT MY PROFILE:
+</p>
+
+
+<p align="center">
   <a href="https://github.com/donfushii/"><img alt="Cute Count" 
   src="https://count.getloli.com/get/@README?theme=rule34" />
 </a>
