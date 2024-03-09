@@ -17,7 +17,7 @@ print(f'Follow {DONFUSHII} on Github')
 Currently working on helpfull Discord-Tools!
 ```
 
-Imperium Project's was developed solely for EDUCATIONAL PURPOSES.
+⚠ ・**REMEMBER;** Imperium Project's was developed solely for EDUCATIONAL PURPOSES.
 This project was created with good intentions and is intended for PERSONAL use only.
 By choosing to use Imperium Project's, you acknowledge and accept full responsibility and accountability for any consequences that may arise as a result of your actions.
 
