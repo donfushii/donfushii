@@ -27,7 +27,7 @@ By choosing to use Imperium Project's, you acknowledge and accept full responsib
 
 <p align="center">
     <a align="center"></a>
-    <a align="center">- STATICS -</a>
+    <a align="center">- STATISTICS -</a>
     <a align="center"></a>
 </p>
   
