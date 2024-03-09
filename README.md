@@ -14,6 +14,10 @@ DONFUSHII = 'FUSHII'
 print(f'Follow {DONFUSHII} on Github')
 ```
 
+✔️・**Latest open source project [Imperium](https://github.com/donfushii/imperium)**
+
+📩・**Want to reach? Add @donfushii on [discord](https://discord.gg/)**
+
 <p align="center">
   <a href="https://github.com/donfushii"><img alt="Fushii's Stats" src="https://github-readme-stats.vercel.app/api?username=donfushii&show_icons=true&count_private=true&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=060A0CD0" /></a>
 </p>
