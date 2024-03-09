@@ -15,7 +15,7 @@ Currently working on helpful Discord-Tools!
 
 📩・**Want to reach? Add @donfushii on [Discord](https://discord.com/users/1186692976743809026)**
 
-⚠ ・**WARNING:** Imperium Project's was developed solely for **EDUCATIONAL PURPOSES**.
+⚠・**WARNING:** Imperium Project's was developed solely for **EDUCATIONAL PURPOSES**.
 This project was created with good intentions and is intended for **PERSONAL** use only.
 By choosing to use Imperium Project's, you acknowledge and accept full responsibility and accountability for any consequences that may arise as a result of your actions.
 
