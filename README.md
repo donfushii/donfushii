@@ -36,7 +36,7 @@ By choosing to use Imperium Project's, you acknowledge and accept full responsib
 </p>
 
 <p align="center">
-  **PEOPLE WHO VISIT MY PROFILE:**
+  <a align="center">- PEOPLE WHO VISIT MY PROFILE -</a>
 </p>
 
 
