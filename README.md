@@ -2,7 +2,7 @@
 
 <p align="center">
 ![GitHub](https://komarev.com/ghpvc/?username=donfushii&style=flat)
-[![Discord](https://dcbadge.vercel.app/api/shield/1212021681057566771?style=flat&logoColor=presence&theme=clean)](https://discord.com/users/1212021681057566771)
+[![Discord](https://dcbadge.vercel.app/api/shield/1186692976743809026?style=flat&logoColor=presence&theme=clean)](https://discord.com/users/1212021681057566771)
 </p>
 
 ```python
