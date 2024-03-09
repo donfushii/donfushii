@@ -12,7 +12,9 @@ Currently working on helpful Discord-Tools!
 ```
 
 <p align="center">
-    <a align="center">- Information -</a>
+    <a align="center"></a>
+    <a align="center">- INFORMATION -</a>
+    <a align="center"></a>
 </p>
   
 ✔️・**Latest Open Source Project; [Imperium](https://github.com/donfushii/imperium)**
@@ -24,7 +26,9 @@ This project was created with good intentions and is intended for **PERSONAL** u
 By choosing to use Imperium Project's, you acknowledge and accept full responsibility and accountability for any consequences that may arise as a result of your actions.
 
 <p align="center">
-    <a align="center">- Statics -</a>
+    <a align="center"></a>
+    <a align="center">- STATICS -</a>
+    <a align="center"></a>
 </p>
   
 <p align="center">
