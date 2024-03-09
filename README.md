@@ -11,9 +11,9 @@ print(f'Follow {DONFUSHII} on Github')
 Currently working on helpful Discord-Tools!
 ```
 
-<div align="center">
-    <h2 align="center">- Information -</h2>
-<div>
+<p align="center">
+    <a align="center">- Information -</a>
+</p>
   
 ✔️・**Latest Open Source Project; [Imperium](https://github.com/donfushii/imperium)**
 
@@ -23,9 +23,9 @@ Currently working on helpful Discord-Tools!
 This project was created with good intentions and is intended for **PERSONAL** use only.
 By choosing to use Imperium Project's, you acknowledge and accept full responsibility and accountability for any consequences that may arise as a result of your actions.
 
-<div align="center">
-    <h2 align="center">- Statics -</h2>
-<div>
+<p align="center">
+    <a align="center">- Statics -</a>
+</p>
   
 <p align="center">
   <a href="https://github.com/donfushii"><img alt="Fushii's Stats" src="https://github-readme-stats.vercel.app/api?username=donfushii&show_icons=true&count_private=true&theme=monokai&icon_color=EB1F6A&hide_border=true&bg_color=060A0CD0" /></a>
