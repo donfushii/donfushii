@@ -8,7 +8,7 @@ DONFUSHII = 'FUSHII'
 print(f'Follow {DONFUSHII} on Github')
 ```
 ```sh-session
-Last proyect  >  Imperium Tools
+Currently working on useful Discord Tools!
 ```
 
 <p align="center">
@@ -17,9 +17,9 @@ Last proyect  >  Imperium Tools
     <a align="center"></a>
 </p>
   
-✔️・**Latest Open Source Project; [Imperium](https://github.com/donfushii/imperium)**
+✔️・**Latest Open Source Project; [Imperium Tools](https://github.com/donfushii/Imperium_Tools)**
 
-📩・**Want to reach? Add @donfushii on [Discord](https://discord.com/users/1186692976743809026)**
+📩・**Want to reach? Add @donfushii on [Discord](https://discord.com/users/1226985025224970261)**
 
 ⚠・**WARNING:** Imperium Project's was developed solely for **EDUCATIONAL PURPOSES**.
 This project was created with good intentions and is intended for **PERSONAL** use only.
