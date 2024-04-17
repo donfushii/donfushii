@@ -21,7 +21,7 @@ Currently working on useful Discord Tools!
 
 📩・**Want to reach? Add @donfushii on [Discord](https://discord.com/users/1226985025224970261)**
 
-⚠・**WARNING:** Imperium Too's was developed solely for **EDUCATIONAL PURPOSES**.
+⚠・**WARNING:** Imperium Tool's was developed solely for **EDUCATIONAL PURPOSES**.
 This project was created with good intentions and is intended for **PERSONAL** use only.
 By choosing to use Imperium Tool's, you acknowledge and accept full responsibility and accountability for any consequences that may arise as a result of your actions.
 
