@@ -17,9 +17,13 @@ Currently working on useful Discord Tools!
     <a align="center"></a>
 </p>
 
-<img align="left" height="200" src="https://listenmoe.imnon.xyz/assets/shigure-ui-VNBEZtvp.gif"  />
+![Shigure UI](https://listenmoe.imnon.xyz/assets/shigure-ui-VNBEZtvp.gif)
 
-<p align="left">✔️・**Latest Open Source Project; [Imperium Tools](https://github.com/donfushii/Imperium_Tools)**<br><br>📩・**Want to reach? Add @donfushii on [Discord](https://discord.com/users/1226985025224970261)**<br><br>⚠・**WARNING:** Imperium Tool's was developed solely for **EDUCATIONAL PURPOSES**.<br><br>This project was created with good intentions and is intended for **PERSONAL** use only.<br><br>By choosing to use Imperium Tool's, you acknowledge and accept full responsibility and accountability for any consequences that may arise as a result of your actions.</p>
+✔️・**Latest Open Source Project; [Imperium Tools](https://github.com/donfushii/Imperium_Tools)**
+📩・**Want to reach? Add @donfushii on [Discord](https://discord.com/users/1226985025224970261)**
+⚠・**WARNING:** Imperium Tool's was developed solely for **EDUCATIONAL PURPOSES**.
+This project was created with good intentions and is intended for **PERSONAL** use only.
+By choosing to use Imperium Tool's, you acknowledge and accept full responsibility and accountability for any consequences that may arise as a result of your actions.
 
 <p align="center">
     <a align="center"></a>
