@@ -11,6 +11,8 @@ print(f'Follow {DONFUSHII} on Github')
 Currently working on useful Discord Tools!
 ```
 
+<br>
+
 <p align="center">
     <a align="center"></a>
     <a align="center">- INFORMATION -</a>
@@ -23,7 +25,7 @@ Currently working on useful Discord Tools!
 📩・**Want to reach? Add @donfushii on [Discord](https://discord.com/users/1226985025224970261)**<br><br>
 ⚠・**WARNING:** Imperium was developed solely for **EDUCATIONAL PURPOSES**.<br><br>
 This project was created with good intentions and is intended for **PERSONAL** use only.<br><br>
-Choosing to use Imperium, you acknowledge and accept full responsibility for any consequences.
+Choosing to use Imperium, you acknowledge and accept full responsibility for any consequences.<br><br>
 
 <p align="center">
     <a align="center"></a>
