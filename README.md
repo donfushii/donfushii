@@ -1,3 +1,9 @@
+<!-- 
+
+	~> If you see this don't forget to follow me before skid <3
+
+-->
+
 </details>
 
 ```python
@@ -8,7 +14,7 @@ DONFUSHII = 'FUSHII'
 print(f'Follow {DONFUSHII} on Github')
 ```
 ```sh-session
-Currently working on useful Discord Tools!
+Currently working on Imperium Tool's!
 ```
 
 <br>
