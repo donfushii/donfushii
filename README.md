@@ -29,11 +29,21 @@
 > [!]: You can Add me on Discord at [@donfushii](https://discord.com/users/1226985025224970261) Or simply click on the image below to reach me.
 
 <br/><br/>
-	
+
+<!-- 
+
 <p align="center">
-  <a href="https://discordapp.com/users/1226985025224970261"><img alt="Discord Profile" 
+  <a href="https://discordapp.com/users/1226985025224970261"><img alt="Discord Profile V1" 
   src="https://discord.c99.nl/widget/theme-4/1226985025224970261.png" />
 </a>
+
+-->
+
+<p align="center">
+  <a href="https://discordapp.com/users/1226985025224970261"><img alt="Discord Presence"
+  src="https://lanyard-profile-readme.vercel.app/api/1226985025224970261?theme=dark&animated=true&hideDiscrim=true&borderRadius=30px&hideStatus=true" />
+</a>
+
 
 <br/><br/>
 
