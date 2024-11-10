@@ -16,17 +16,17 @@
 <p align="center">
   <a href="#-who-i-am">Who i am</a> •
 	<a href="#-people-who-see-my-profile">Views</a> •
-	<a href="#-My-big-project">Projects</a>
+	<a href="#-my-projects">Projects</a>
 </p>
 <br/>
 
 ## • Who i am?
 
 **_1. Im a user like anyone else, you can call me Fushii. ^^_**
-> Alert: Currently I really like using the programming language "Python" & "LUA". I have several projects in these languages that haven’t been released yet.
+> [!]: Currently I really like using the programming language "Python" & "LUA". I have several projects in these languages that haven’t been released yet.
 
 **_2. Would you like to contact me?_**
-> Alert: You can Add me on Discord at [@donfushii](https://discord.com/users/1226985025224970261) Or simply click on the image below to reach me.
+> [!]: You can Add me on Discord at [@donfushii](https://discord.com/users/1226985025224970261) Or simply click on the image below to reach me.
 
 <br/><br/>
 	
@@ -40,7 +40,7 @@
 ## • People who see my profile:
 
 **_1. Look, you're at the counter. ^^_**
-> Alert: I'm grateful that you decided to check out my profile. Feel free to follow me if you'd like.
+> [!]: I'm grateful that you decided to check out my profile. Feel free to follow me if you'd like.
 
 <br/><br/>
 
@@ -51,10 +51,10 @@
 
 <br/><br/>
 
-## • My big project:
+## • My projects:
 
-✔️・**Latest Open Source Project; [Vencord Things](https://github.com/donfushii/Vencord-Things)**<br><br>
-📩・**Want to reach? Add @donfushii on [Discord](https://discord.com/users/1226985025224970261)**<br><br>
-⚠・**WARNING:** Imperium was developed solely for **EDUCATIONAL PURPOSES**.<br><br>
-This project was created with good intentions and is intended for **PERSONAL** use only.<br><br>
-Choosing to use Imperium, you acknowledge and accept full responsibility for any consequences.<br><br>
+**_1. What project are you working on?_**
+> [A]: Right now, I’m working on [Imperium](https://github.com/Imperium-Development/Imperium/tree/main). A free Script for Roblox. This project has been in development for a good while and was created with good intentions and is intended for PERSONAL use only even though it’s now public.
+
+**_2. Do you have any more projects?_**
+> [A]: Yes, I have more projects. One of them is [Vencord Things](https://github.com/donfushii/Vencord-Things), which contains themes and plugins to customize your Discord with the external app "Vencord" This project is fully open source.
