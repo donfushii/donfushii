@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+}
+
+.gota {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0;
+    animation: aparecer 0.5s forwards;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.mensaje {
+    font-size: 3em;
+    font-weight: bold;
+    position: absolute;
+    opacity: 0;
+    animation: aparecer 1s forwards;
+}
+
+.globo {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+@keyframes subir {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-150vh); opacity: 0; }
+}
