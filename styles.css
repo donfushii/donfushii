@@ -10,10 +10,14 @@ body {
     position: relative;
 }
 
+#contenedor {
+    display: flex;
+    gap: 10px;
+}
+
 .gota {
-    position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     opacity: 0;
     animation: aparecer 0.5s forwards;
@@ -24,18 +28,18 @@ body {
     to { opacity: 1; transform: scale(1); }
 }
 
-.mensaje {
+.letra {
     font-size: 3em;
     font-weight: bold;
-    position: absolute;
+    position: relative;
     opacity: 0;
     animation: aparecer 1s forwards;
 }
 
 .globo {
     position: absolute;
-    width: 20px;
-    height: 30px;
+    width: 30px;
+    height: 40px;
     background-color: red;
     border-radius: 50%;
     opacity: 0;
