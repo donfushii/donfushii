@@ -22,7 +22,7 @@
 
 ## • Who i am?
 
-**_1. Im a user like anyone else, you can call me Fushii. ^^_**
+**_1. Im a user like anyone else, you can call me Fushii._**
 > [!]: Currently I really like using the programming language "Python" & "LUA". I have several projects in these languages that haven’t been released yet.
 
 **_2. Would you like to contact me?_**
@@ -33,7 +33,7 @@
 <!-- 
 
 <p align="center">
-  <a href="https://discordapp.com/users/1226985025224970261"><img alt="Discord Profile V1" 
+  <a href="https://discordapp.com/users/1135775008703127672"><img alt="Discord Profile V1" 
   src="https://discord.c99.nl/widget/theme-4/1226985025224970261.png" />
 </a>
 
