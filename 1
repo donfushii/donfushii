@@ -2578,7 +2578,7 @@ function lib:Window(text, preset, closebind)
 
         -- [ MODIFIED LABEL ] --
 
-        function tabcontent:ImageDiscord(callback)
+        function tabcontent:ImageDiscord(changelogText, callback)
             local lbl = {}
 
             local Label = Instance.new("TextButton")
@@ -2587,7 +2587,7 @@ function lib:Window(text, preset, closebind)
             Label.Name = "BackgroundButton"
             Label.Parent = Tab
             Label.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-            Label.Size = UDim2.new(0, 363, 0, 145)
+            Label.Size = UDim2.new(0, 363, 0, 135)
             Label.AutoButtonColor = false
             Label.Font = Enum.Font.SourceSans
             Label.Text = ""
@@ -2597,6 +2597,55 @@ function lib:Window(text, preset, closebind)
             LabelCorner.CornerRadius = UDim.new(0, 5)
             LabelCorner.Name = "ButtonCorner"
             LabelCorner.Parent = Label
+            
+            --
+            local LabelChangelogs = Instance.new("TextButton")
+            local LabelChangelogsCorner = Instance.new("UICorner")
+
+            LabelChangelogs.Name = "ChangeLogsButton"
+            LabelChangelogs.Parent = Tab
+            LabelChangelogs.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            LabelChangelogs.Size = UDim2.new(0, 363, 0, 100)
+            LabelChangelogs.AutoButtonColor = false
+            LabelChangelogs.Font = Enum.Font.SourceSans
+            LabelChangelogs.Text = ""
+            LabelChangelogs.TextColor3 = Color3.fromRGB(0, 0, 0)
+            LabelChangelogs.TextSize = 14.000
+
+            LabelChangelogsCorner.CornerRadius = UDim.new(0, 5)
+            LabelChangelogsCorner.Name = "ButtonCorner"
+            LabelChangelogsCorner.Parent = LabelChangelogs
+
+            local LogsTitleLabel = Instance.new("TextLabel")
+            local ChangelogsLabel = Instance.new("TextLabel")
+
+            LogsTitleLabel.Name = "ChangelogsLabel"
+            LogsTitleLabel.Parent = Label
+            LogsTitleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            LogsTitleLabel.BackgroundTransparency = 1.000
+            LogsTitleLabel.Position = UDim2.new(0, 10, 0, 5)
+            LogsTitleLabel.Size = UDim2.new(0, 155, 0, 20)
+            LogsTitleLabel.Font = Enum.Font.Gotham
+            LogsTitleLabel.Text = "Changelogs"
+            LogsTitleLabel.TextColor3 = Color3.fromRGB(141, 141, 141)
+            LogsTitleLabel.TextSize = 14.000
+            LogsTitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+            LogsTitleLabel.TextTruncate = Enum.TextTruncate.AtEnd
+
+            LogsTitleLabel.Name = "ChangelogsLabel"
+            LogsTitleLabel.Parent = Label
+            LogsTitleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            LogsTitleLabel.BackgroundTransparency = 1.000
+            LogsTitleLabel.Position = UDim2.new(0, 10, 0, 25)
+            LogsTitleLabel.Size = UDim2.new(1, -15, 0, 25)
+            LogsTitleLabel.Font = Enum.Font.Gotham
+            LogsTitleLabel.Text = changelogText or "  ・  No recent updates."
+            LogsTitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            LogsTitleLabel.TextSize = 14.000
+            LogsTitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+            LogsTitleLabel.TextTruncate = Enum.TextTruncate.AtEnd
+
+            --
 
             local ImageLabel = Instance.new("ImageLabel")
             local ImageLabelCorner = Instance.new("UICorner")
@@ -2694,7 +2743,7 @@ function lib:Window(text, preset, closebind)
             JoinSubButton.Parent = Label
             JoinSubButton.BackgroundColor3 = Color3.fromRGB(119, 207, 116)
             JoinSubButton.Position = UDim2.new(0, 7, 0, 95)
-            JoinSubButton.Size = UDim2.new(0, 350, 0, 42)
+            JoinSubButton.Size = UDim2.new(0, 350, 0, 33)
             JoinSubButton.AutoButtonColor = false
             JoinSubButton.Font = Enum.Font.Gotham
             JoinSubButton.Text = "Join"
@@ -2708,6 +2757,10 @@ function lib:Window(text, preset, closebind)
             if typeof(callback) == "function" then
 	        	JoinSubButton.MouseButton1Click:Connect(callback)
 	        end
+
+            if typeof(changelogText) == "function" then
+      		    LabelChangelogs.MouseButton1Click:Connect(changelogText)
+   			end
 
             local url = "https://imperium-kkqh.onrender.com/status"
 
