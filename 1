@@ -2579,202 +2579,185 @@ function lib:Window(text, preset, closebind)
         -- [ MODIFIED LABEL ] --
 
         function tabcontent:ImageDiscord(changelogText, callback)
-            local lbl = {}
+    local lbl = {}
+    local invalidBuilt = false -- evita duplicar UI inválida
 
-            local Label = Instance.new("TextButton")
-            local LabelCorner = Instance.new("UICorner")
+    local Label = Instance.new("TextButton")
+    local LabelCorner = Instance.new("UICorner")
 
-            Label.Name = "BackgroundButton"
-            Label.Parent = Tab
-            Label.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-            Label.Size = UDim2.new(0, 363, 0, 135)
-            Label.AutoButtonColor = false
-            Label.Font = Enum.Font.SourceSans
-            Label.Text = ""
-            Label.TextColor3 = Color3.fromRGB(0, 0, 0)
-            Label.TextSize = 14.000
+    Label.Name = "BackgroundButton"
+    Label.Parent = Tab
+    Label.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+    Label.Size = UDim2.new(0, 363, 0, 135)
+    Label.AutoButtonColor = false
+    Label.Font = Enum.Font.SourceSans
+    Label.Text = ""
+    Label.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Label.TextSize = 14.000
 
-            LabelCorner.CornerRadius = UDim.new(0, 5)
-            LabelCorner.Name = "ButtonCorner"
-            LabelCorner.Parent = Label
-            
-            local LabelChangelogs = Instance.new("TextButton")
-            local LabelChangelogsCorner = Instance.new("UICorner")
+    LabelCorner.CornerRadius = UDim.new(0, 5)
+    LabelCorner.Name = "ButtonCorner"
+    LabelCorner.Parent = Label
+    
+    local LabelChangelogs = Instance.new("TextButton")
+    local LabelChangelogsCorner = Instance.new("UICorner")
 
-            LabelChangelogs.Name = "ChangeLogsButton"
-            LabelChangelogs.Parent = Tab
-            LabelChangelogs.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-            LabelChangelogs.Size = UDim2.new(0, 363, 0, 100)
-            LabelChangelogs.AutoButtonColor = false
-            LabelChangelogs.Font = Enum.Font.SourceSans
-            LabelChangelogs.Text = ""
-            LabelChangelogs.TextColor3 = Color3.fromRGB(0, 0, 0)
-            LabelChangelogs.TextSize = 14.000
+    LabelChangelogs.Name = "ChangeLogsButton"
+    LabelChangelogs.Parent = Tab
+    LabelChangelogs.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+    LabelChangelogs.Size = UDim2.new(0, 363, 0, 100)
+    LabelChangelogs.AutoButtonColor = false
+    LabelChangelogs.Font = Enum.Font.SourceSans
+    LabelChangelogs.Text = ""
+    LabelChangelogs.TextColor3 = Color3.fromRGB(0, 0, 0)
+    LabelChangelogs.TextSize = 14.000
 
-            LabelChangelogsCorner.CornerRadius = UDim.new(0, 5)
-            LabelChangelogsCorner.Name = "ButtonCorner"
-            LabelChangelogsCorner.Parent = LabelChangelogs
+    LabelChangelogsCorner.CornerRadius = UDim.new(0, 5)
+    LabelChangelogsCorner.Name = "ButtonCorner"
+    LabelChangelogsCorner.Parent = LabelChangelogs
 
-            local LogsTitleLabel = Instance.new("TextLabel")
-            local ChangelogsLabel = Instance.new("TextLabel")
+    local LogsTitleLabel = Instance.new("TextLabel")
+    local ChangelogsLabel = Instance.new("TextLabel")
 
-            LogsTitleLabel.Name = "LogsTitleLabel"
-            LogsTitleLabel.Parent = LabelChangelogs
-            LogsTitleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            LogsTitleLabel.BackgroundTransparency = 1.000
-            LogsTitleLabel.Position = UDim2.new(0, 10, 0, 5)
-            LogsTitleLabel.Size = UDim2.new(0, 155, 0, 20)
-            LogsTitleLabel.Font = Enum.Font.Gotham
-            LogsTitleLabel.Text = "Changelogs"
-            LogsTitleLabel.TextColor3 = Color3.fromRGB(141, 141, 141)
-            LogsTitleLabel.TextSize = 10.000
-            LogsTitleLabel.TextXAlignment = Enum.TextXAlignment.Left
-            LogsTitleLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    LogsTitleLabel.Name = "LogsTitleLabel"
+    LogsTitleLabel.Parent = LabelChangelogs
+    LogsTitleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    LogsTitleLabel.BackgroundTransparency = 1.000
+    LogsTitleLabel.Position = UDim2.new(0, 10, 0, 5)
+    LogsTitleLabel.Size = UDim2.new(0, 155, 0, 20)
+    LogsTitleLabel.Font = Enum.Font.Gotham
+    LogsTitleLabel.Text = "Changelogs"
+    LogsTitleLabel.TextColor3 = Color3.fromRGB(141, 141, 141)
+    LogsTitleLabel.TextSize = 10.000
+    LogsTitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+    LogsTitleLabel.TextTruncate = Enum.TextTruncate.AtEnd
 
-            ChangelogsLabel.Name = "ChangelogsLabel"
-            ChangelogsLabel.Parent = LabelChangelogs
-            ChangelogsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            ChangelogsLabel.BackgroundTransparency = 1.000
-            ChangelogsLabel.Position = UDim2.new(0, 9, 0, 30)
-            ChangelogsLabel.Size = UDim2.new(1, -15, 0, 60)
-            ChangelogsLabel.Font = Enum.Font.Gotham
-            ChangelogsLabel.Text = changelogText or "  ・  No recent updates."
-            ChangelogsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-            ChangelogsLabel.TextSize = 14.000
-            ChangelogsLabel.TextXAlignment = Enum.TextXAlignment.Left
-            ChangelogsLabel.TextTruncate = Enum.TextTruncate.AtEnd
+    ChangelogsLabel.Name = "ChangelogsLabel"
+    ChangelogsLabel.Parent = LabelChangelogs
+    ChangelogsLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ChangelogsLabel.BackgroundTransparency = 1.000
+    ChangelogsLabel.Position = UDim2.new(0, 9, 0, 30)
+    ChangelogsLabel.Size = UDim2.new(1, -15, 0, 60)
+    ChangelogsLabel.Font = Enum.Font.Gotham
+    ChangelogsLabel.Text = changelogText or "  ・  No recent updates."
+    ChangelogsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    ChangelogsLabel.TextSize = 14.000
+    ChangelogsLabel.TextXAlignment = Enum.TextXAlignment.Left
+    ChangelogsLabel.TextTruncate = Enum.TextTruncate.AtEnd
 
-            local ImageLabel = Instance.new("ImageLabel")
-            local ImageLabelCorner = Instance.new("UICorner")
+    local ImageLabel = Instance.new("ImageLabel")
+    local ImageLabelCorner = Instance.new("UICorner")
 
-            ImageLabel.Name = "ImageLabel"
-            ImageLabel.Parent = Label
-            ImageLabel.BackgroundTransparency = 1
-            ImageLabel.Image = "rbxassetid://71610434705093"
-            ImageLabel.Position = UDim2.new(0, 5, 0, 17)
-            ImageLabel.Size = UDim2.new(0, 70, 0, 70)
-        
-            ImageLabelCorner.CornerRadius = UDim.new(0, 5)
-            ImageLabelCorner.Parent = ImageLabel
+    ImageLabel.Name = "ImageLabel"
+    ImageLabel.Parent = Label
+    ImageLabel.BackgroundTransparency = 1
+    ImageLabel.Image = "rbxassetid://71610434705093"
+    ImageLabel.Position = UDim2.new(0, 5, 0, 17)
+    ImageLabel.Size = UDim2.new(0, 70, 0, 70)
 
-            local SublabelTitle1 = Instance.new("TextLabel")
-            local SublabelTitle2 = Instance.new("TextLabel")
-            local SublabelTitle3 = Instance.new("TextLabel")
+    ImageLabelCorner.CornerRadius = UDim.new(0, 5)
+    ImageLabelCorner.Parent = ImageLabel
 
-            local OnlineCircle = Instance.new("TextLabel")
-            local OfflineCircle = Instance.new("TextLabel")
-            local OnlineCircleCorner = Instance.new("UICorner")
-            local OfflineCircleCorner = Instance.new("UICorner")
+    local SublabelTitle1 = Instance.new("TextLabel")
+    local SublabelTitle2 = Instance.new("TextLabel")
+    local SublabelTitle3 = Instance.new("TextLabel")
 
-            local JoinSubButton = Instance.new("TextButton")
-            local JoinSubButtonCorner = Instance.new("UICorner")
+    local OnlineCircle = Instance.new("TextLabel")
+    local OfflineCircle = Instance.new("TextLabel")
+    local OnlineCircleCorner = Instance.new("UICorner")
+    local OfflineCircleCorner = Instance.new("UICorner")
 
-            SublabelTitle1.Name = "LabelServer"
-            SublabelTitle1.Parent = Label
-            SublabelTitle1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            SublabelTitle1.BackgroundTransparency = 1.000
-            SublabelTitle1.Position = UDim2.new(0.2, 10, 0, 15)
-            SublabelTitle1.Size = UDim2.new(0, 270, 0, 42)
-            SublabelTitle1.Font = Enum.Font.Gotham
-            SublabelTitle1.Text = "IMPERIUM  🦇"
-            SublabelTitle1.TextColor3 = Color3.fromRGB(255, 255, 255)
-            SublabelTitle1.TextSize = 14.000
-            SublabelTitle1.TextXAlignment = Enum.TextXAlignment.Left
-            SublabelTitle1.TextTruncate = Enum.TextTruncate.AtEnd
+    local JoinSubButton = Instance.new("TextButton")
+    local JoinSubButtonCorner = Instance.new("UICorner")
 
-            SublabelTitle2.Name = "LabelOnline"
-            SublabelTitle2.Parent = Label
-            SublabelTitle2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            SublabelTitle2.BackgroundTransparency = 1.000
-            SublabelTitle2.Position = UDim2.new(0.2, 30, 0, 45)
-            SublabelTitle2.Size = UDim2.new(0, 155, 0, 42)
-            SublabelTitle2.Font = Enum.Font.Gotham
-            SublabelTitle2.Text = "0 Online"
-            SublabelTitle2.TextColor3 = Color3.fromRGB(255, 255, 255)
-            SublabelTitle2.TextSize = 14.000
-            SublabelTitle2.TextXAlignment = Enum.TextXAlignment.Left
-            SublabelTitle2.TextTruncate = Enum.TextTruncate.AtEnd
+    SublabelTitle1.Name = "LabelServer"
+    SublabelTitle1.Parent = Label
+    SublabelTitle1.BackgroundTransparency = 1
+    SublabelTitle1.Position = UDim2.new(0.2, 10, 0, 15)
+    SublabelTitle1.Size = UDim2.new(0, 270, 0, 42)
+    SublabelTitle1.Font = Enum.Font.Gotham
+    SublabelTitle1.Text = "IMPERIUM  🦇"
+    SublabelTitle1.TextColor3 = Color3.fromRGB(255, 255, 255)
+    SublabelTitle1.TextSize = 14
+    SublabelTitle1.TextXAlignment = Enum.TextXAlignment.Left
 
-            SublabelTitle3.Name = "LabelMembers"
-            SublabelTitle3.Parent = Label
-            SublabelTitle3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            SublabelTitle3.BackgroundTransparency = 1.000
-            SublabelTitle3.Position = UDim2.new(0.2, 170, 0, 45)
-            SublabelTitle3.Size = UDim2.new(0, 155, 0, 42)
-            SublabelTitle3.Font = Enum.Font.Gotham
-            SublabelTitle3.Text = "0 Members"
-            SublabelTitle3.TextColor3 = Color3.fromRGB(255, 255, 255)
-            SublabelTitle3.TextSize = 14.000
-            SublabelTitle3.TextXAlignment = Enum.TextXAlignment.Left
-            SublabelTitle3.TextTruncate = Enum.TextTruncate.AtEnd
+    SublabelTitle2.Name = "LabelOnline"
+    SublabelTitle2.Parent = Label
+    SublabelTitle2.BackgroundTransparency = 1
+    SublabelTitle2.Position = UDim2.new(0.2, 30, 0, 45)
+    SublabelTitle2.Size = UDim2.new(0, 155, 0, 42)
+    SublabelTitle2.Font = Enum.Font.Gotham
+    SublabelTitle2.Text = "0 Online"
+    SublabelTitle2.TextColor3 = Color3.fromRGB(255, 255, 255)
+    SublabelTitle2.TextSize = 14
+    SublabelTitle2.TextXAlignment = Enum.TextXAlignment.Left
 
-            OnlineCircle.Name = "OnlineLabel"
-            OnlineCircle.Parent = Label
-            OnlineCircle.BackgroundColor3 = Color3.fromRGB(119, 207, 116)
-            OnlineCircle.BackgroundTransparency = 0
-            OnlineCircle.Position = UDim2.new(0, 85, 0, 61)
-            OnlineCircle.Size = UDim2.new(0, 10, 0, 10)
-            OnlineCircle.Text = ""
-            OnlineCircle.TextColor3 = Color3.fromRGB(255, 255, 255)
-            OnlineCircle.TextSize = 14.000
+    SublabelTitle3.Name = "LabelMembers"
+    SublabelTitle3.Parent = Label
+    SublabelTitle3.BackgroundTransparency = 1
+    SublabelTitle3.Position = UDim2.new(0.2, 170, 0, 45)
+    SublabelTitle3.Size = UDim2.new(0, 155, 0, 42)
+    SublabelTitle3.Font = Enum.Font.Gotham
+    SublabelTitle3.Text = "0 Members"
+    SublabelTitle3.TextColor3 = Color3.fromRGB(255, 255, 255)
+    SublabelTitle3.TextSize = 14
+    SublabelTitle3.TextXAlignment = Enum.TextXAlignment.Left
 
-            OnlineCircleCorner.CornerRadius = UDim.new(100, 0)
-            OnlineCircleCorner.Name = "ButtonCorner"
-            OnlineCircleCorner.Parent = OnlineCircle
+    OnlineCircle.Name = "OnlineLabel"
+    OnlineCircle.Parent = Label
+    OnlineCircle.BackgroundColor3 = Color3.fromRGB(119, 207, 116)
+    OnlineCircle.Position = UDim2.new(0, 85, 0, 61)
+    OnlineCircle.Size = UDim2.new(0, 10, 0, 10)
 
-            OfflineCircle.Name = "OfflineLabel"
-            OfflineCircle.Parent = Label
-            OfflineCircle.BackgroundColor3 = Color3.fromRGB(163, 162, 165)
-            OfflineCircle.BackgroundTransparency = 0
-            OfflineCircle.Position = UDim2.new(0, 225, 0, 61)
-            OfflineCircle.Size = UDim2.new(0, 10, 0, 10)
-            OfflineCircle.Text = ""
-            OfflineCircle.TextColor3 = Color3.fromRGB(255, 255, 255)
-            OfflineCircle.TextSize = 14.000
+    OnlineCircleCorner.CornerRadius = UDim.new(100, 0)
+    OnlineCircleCorner.Parent = OnlineCircle
 
-            OfflineCircleCorner.CornerRadius = UDim.new(100, 0)
-            OfflineCircleCorner.Name = "ButtonCorner"
-            OfflineCircleCorner.Parent = OfflineCircle
+    OfflineCircle.Name = "OfflineLabel"
+    OfflineCircle.Parent = Label
+    OfflineCircle.BackgroundColor3 = Color3.fromRGB(163, 162, 165)
+    OfflineCircle.Position = UDim2.new(0, 225, 0, 61)
+    OfflineCircle.Size = UDim2.new(0, 10, 0, 10)
 
-            JoinSubButton.Name = "JoinButton"
-            JoinSubButton.Parent = Label
-            JoinSubButton.BackgroundColor3 = Color3.fromRGB(119, 207, 116)
-            JoinSubButton.Position = UDim2.new(0, 7, 0, 95)
-            JoinSubButton.Size = UDim2.new(0, 350, 0, 33)
-            JoinSubButton.AutoButtonColor = false
-            JoinSubButton.Font = Enum.Font.Gotham
-            JoinSubButton.Text = "Join"
-            JoinSubButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-            JoinSubButton.TextSize = 14.000
+    OfflineCircleCorner.CornerRadius = UDim.new(100, 0)
+    OfflineCircleCorner.Parent = OfflineCircle
 
-            JoinSubButtonCorner.CornerRadius = UDim.new(0, 5)
-            JoinSubButtonCorner.Name = "ButtonCorner"
-            JoinSubButtonCorner.Parent = JoinSubButton
+    JoinSubButton.Name = "JoinButton"
+    JoinSubButton.Parent = Label
+    JoinSubButton.BackgroundColor3 = Color3.fromRGB(119, 207, 116)
+    JoinSubButton.Position = UDim2.new(0, 7, 0, 95)
+    JoinSubButton.Size = UDim2.new(0, 350, 0, 33)
+    JoinSubButton.Font = Enum.Font.Gotham
+    JoinSubButton.Text = "Join"
+    JoinSubButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    JoinSubButton.TextSize = 14
 
-            if typeof(callback) == "function" then
-	        	JoinSubButton.MouseButton1Click:Connect(callback)
-	        end
+    JoinSubButtonCorner.CornerRadius = UDim.new(0, 5)
+    JoinSubButtonCorner.Parent = JoinSubButton
 
-            if typeof(changelogText) == "function" then
-      		    LabelChangelogs.MouseButton1Click:Connect(changelogText)
-   			end
+    if typeof(callback) == "function" then
+        JoinSubButton.MouseButton1Click:Connect(callback)
+    end
 
-            local url = "https://imperium-kkqh.onrender.com/status"
+    if typeof(changelogText) == "function" then
+        LabelChangelogs.MouseButton1Click:Connect(changelogText)
+    end
 
-			      local function requestDiscordStatus()
-                if http_request then
-                    return http_request({Url = url, Method = "GET"})
-                else
-                    print("> Imperium  |  HTTP Request  •  Your executor doesnt support HTTP Requests  |  Attempt to index nil function with 'HTTP'")
-                    return nil
-                end
-            end
+    local url = "https://imperium-kkqh.onrender.com/status"
 
-            local function makeInvalidUI()
-        -- mover imagen
+    local function requestDiscordStatus()
+        if http_request then
+            return http_request({Url = url, Method = "GET"})
+        else
+            warn("> Imperium | HTTP Request not supported")
+            return nil
+        end
+    end
+
+    local function makeInvalidUI()
+        if invalidBuilt then return end
+        invalidBuilt = true
+
         ImageLabel.Position = UDim2.new(0, 5, 0, 40)
-
-        -- ocultar elementos
         SublabelTitle1.Visible = false
         SublabelTitle2.Visible = false
         SublabelTitle3.Visible = false
@@ -2782,10 +2765,8 @@ function lib:Window(text, preset, closebind)
         OfflineCircle.Visible = false
         JoinSubButton.Visible = false
 
-        -- Label 1
         local Inv1 = Instance.new("TextLabel")
         Inv1.Parent = Label
-        Inv1.BackgroundColor3 = Color3.fromRGB(172, 172, 172)
         Inv1.BackgroundTransparency = 1
         Inv1.Position = UDim2.new(0, 20, 0, 10)
         Inv1.Size = UDim2.new(0, 250, 0, 20)
@@ -2795,7 +2776,6 @@ function lib:Window(text, preset, closebind)
         Inv1.TextSize = 14
         Inv1.TextXAlignment = Enum.TextXAlignment.Left
 
-        -- Label 2
         local Inv2 = Instance.new("TextLabel")
         Inv2.Parent = Label
         Inv2.BackgroundTransparency = 1
@@ -2807,7 +2787,6 @@ function lib:Window(text, preset, closebind)
         Inv2.TextSize = 14
         Inv2.TextXAlignment = Enum.TextXAlignment.Left
 
-        -- Label 3
         local Inv3 = Instance.new("TextLabel")
         Inv3.Parent = Label
         Inv3.BackgroundTransparency = 1
@@ -2821,7 +2800,7 @@ function lib:Window(text, preset, closebind)
         Inv3.TextTruncate = Enum.TextTruncate.AtEnd
     end
 
-            local function updateDiscordStatus()
+    local function updateDiscordStatus()
         local success, result = pcall(function()
             local response = requestDiscordStatus()
             if not response or response.StatusCode ~= 200 then
@@ -2837,27 +2816,29 @@ function lib:Window(text, preset, closebind)
 
         local data = HttpService:JSONDecode(result)
 
-        if not data or not data.server_exists then
+        -- AHORA NO HAY CHECKS INEXISTENTES
+        if not data or not data.server_name then
             makeInvalidUI()
             return
         end
 
-        SublabelTitle1.Text = data.server_name or "@ IMPERIUM"
-        SublabelTitle2.Text = (data.online and tostring(data.online) or "0") .. " Online"
-        SublabelTitle3.Text = (data.members and tostring(data.members) or "0") .. " Members"
+        SublabelTitle1.Text = data.server_name
+        SublabelTitle2.Text = tostring(data.online or 0) .. " Online"
+        SublabelTitle3.Text = tostring(data.members or 0) .. " Members"
     end
 
     updateDiscordStatus()
 
-            task.spawn(function()
-                while true do
-                    updateDiscordStatus()
-                    task.wait(10)
-                end
-            end)
-        
-            return lbl
+    task.spawn(function()
+        while true do
+            updateDiscordStatus()
+            task.wait(10)
         end
+    end)
+
+    return lbl
+end
+
 
         function tabcontent:Textbox(text, disapper, callback)
             local Textbox = Instance.new("Frame")
