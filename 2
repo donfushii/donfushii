@@ -2580,6 +2580,7 @@ function lib:Window(text, preset, closebind)
 
         function tabcontent:ImageDiscord(changelogText, callback)
     local lbl = {}
+    local invalidBuilt = false -- <--- evita duplicar UI inválida
 
     local Label = Instance.new("TextButton")
     local LabelCorner = Instance.new("UICorner")
@@ -2671,49 +2672,42 @@ function lib:Window(text, preset, closebind)
 
     SublabelTitle1.Name = "LabelServer"
     SublabelTitle1.Parent = Label
-    SublabelTitle1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    SublabelTitle1.BackgroundTransparency = 1.000
+    SublabelTitle1.BackgroundTransparency = 1
     SublabelTitle1.Position = UDim2.new(0.2, 10, 0, 15)
     SublabelTitle1.Size = UDim2.new(0, 270, 0, 42)
     SublabelTitle1.Font = Enum.Font.Gotham
     SublabelTitle1.Text = "IMPERIUM  🦇"
     SublabelTitle1.TextColor3 = Color3.fromRGB(255, 255, 255)
-    SublabelTitle1.TextSize = 14.000
+    SublabelTitle1.TextSize = 14
     SublabelTitle1.TextXAlignment = Enum.TextXAlignment.Left
-    SublabelTitle1.TextTruncate = Enum.TextTruncate.AtEnd
 
     SublabelTitle2.Name = "LabelOnline"
     SublabelTitle2.Parent = Label
-    SublabelTitle2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    SublabelTitle2.BackgroundTransparency = 1.000
+    SublabelTitle2.BackgroundTransparency = 1
     SublabelTitle2.Position = UDim2.new(0.2, 30, 0, 45)
     SublabelTitle2.Size = UDim2.new(0, 155, 0, 42)
     SublabelTitle2.Font = Enum.Font.Gotham
     SublabelTitle2.Text = "0 Online"
     SublabelTitle2.TextColor3 = Color3.fromRGB(255, 255, 255)
-    SublabelTitle2.TextSize = 14.000
+    SublabelTitle2.TextSize = 14
     SublabelTitle2.TextXAlignment = Enum.TextXAlignment.Left
-    SublabelTitle2.TextTruncate = Enum.TextTruncate.AtEnd
 
     SublabelTitle3.Name = "LabelMembers"
     SublabelTitle3.Parent = Label
-    SublabelTitle3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    SublabelTitle3.BackgroundTransparency = 1.000
+    SublabelTitle3.BackgroundTransparency = 1
     SublabelTitle3.Position = UDim2.new(0.2, 170, 0, 45)
     SublabelTitle3.Size = UDim2.new(0, 155, 0, 42)
     SublabelTitle3.Font = Enum.Font.Gotham
     SublabelTitle3.Text = "0 Members"
     SublabelTitle3.TextColor3 = Color3.fromRGB(255, 255, 255)
-    SublabelTitle3.TextSize = 14.000
+    SublabelTitle3.TextSize = 14
     SublabelTitle3.TextXAlignment = Enum.TextXAlignment.Left
-    SublabelTitle3.TextTruncate = Enum.TextTruncate.AtEnd
 
     OnlineCircle.Name = "OnlineLabel"
     OnlineCircle.Parent = Label
     OnlineCircle.BackgroundColor3 = Color3.fromRGB(119, 207, 116)
     OnlineCircle.Position = UDim2.new(0, 85, 0, 61)
     OnlineCircle.Size = UDim2.new(0, 10, 0, 10)
-    OnlineCircle.Text = ""
 
     OnlineCircleCorner.CornerRadius = UDim.new(100, 0)
     OnlineCircleCorner.Parent = OnlineCircle
@@ -2723,7 +2717,6 @@ function lib:Window(text, preset, closebind)
     OfflineCircle.BackgroundColor3 = Color3.fromRGB(163, 162, 165)
     OfflineCircle.Position = UDim2.new(0, 225, 0, 61)
     OfflineCircle.Size = UDim2.new(0, 10, 0, 10)
-    OfflineCircle.Text = ""
 
     OfflineCircleCorner.CornerRadius = UDim.new(100, 0)
     OfflineCircleCorner.Parent = OfflineCircle
@@ -2736,7 +2729,7 @@ function lib:Window(text, preset, closebind)
     JoinSubButton.Font = Enum.Font.Gotham
     JoinSubButton.Text = "Join"
     JoinSubButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    JoinSubButton.TextSize = 14.000
+    JoinSubButton.TextSize = 14
 
     JoinSubButtonCorner.CornerRadius = UDim.new(0, 5)
     JoinSubButtonCorner.Parent = JoinSubButton
@@ -2761,10 +2754,10 @@ function lib:Window(text, preset, closebind)
     end
 
     local function makeInvalidUI()
-        -- mover imagen
-        ImageLabel.Position = UDim2.new(0, 5, 0, 40)
+        if invalidBuilt then return end
+        invalidBuilt = true
 
-        -- ocultar elementos
+        ImageLabel.Position = UDim2.new(0, 5, 0, 40)
         SublabelTitle1.Visible = false
         SublabelTitle2.Visible = false
         SublabelTitle3.Visible = false
@@ -2772,10 +2765,8 @@ function lib:Window(text, preset, closebind)
         OfflineCircle.Visible = false
         JoinSubButton.Visible = false
 
-        -- Label 1
         local Inv1 = Instance.new("TextLabel")
         Inv1.Parent = Label
-        Inv1.BackgroundColor3 = Color3.fromRGB(172, 172, 172)
         Inv1.BackgroundTransparency = 1
         Inv1.Position = UDim2.new(0, 20, 0, 10)
         Inv1.Size = UDim2.new(0, 250, 0, 20)
@@ -2785,7 +2776,6 @@ function lib:Window(text, preset, closebind)
         Inv1.TextSize = 14
         Inv1.TextXAlignment = Enum.TextXAlignment.Left
 
-        -- Label 2
         local Inv2 = Instance.new("TextLabel")
         Inv2.Parent = Label
         Inv2.BackgroundTransparency = 1
@@ -2797,7 +2787,6 @@ function lib:Window(text, preset, closebind)
         Inv2.TextSize = 14
         Inv2.TextXAlignment = Enum.TextXAlignment.Left
 
-        -- Label 3
         local Inv3 = Instance.new("TextLabel")
         Inv3.Parent = Label
         Inv3.BackgroundTransparency = 1
@@ -2827,7 +2816,8 @@ function lib:Window(text, preset, closebind)
 
         local data = HttpService:JSONDecode(result)
 
-        if not data or not data.server_exists then
+        -- FIX PRINCIPAL: server_exist sin S
+        if not data or not data.server_exist then
             makeInvalidUI()
             return
         end
@@ -2848,6 +2838,7 @@ function lib:Window(text, preset, closebind)
 
     return lbl
 end
+
 
         function tabcontent:Textbox(text, disapper, callback)
             local Textbox = Instance.new("Frame")
