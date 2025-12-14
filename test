@@ -423,21 +423,49 @@ function lib:Window(text, preset, closebind)
     end, false, Enum.KeyCode.V)
 
     -- [ DYNAMIC ISLAND API ] --
+    local IslandMinimized = false
 
-    function lib:ToggleDynamicIsland()
+    local function ToggleDynamicIsland()
         IslandMinimized = not IslandMinimized
+
         if IslandMinimized then
-            StatsContainer.Visible = false
-            Frame:TweenSize(IslandMinSize, Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.35, true)
-        else
-            Frame:TweenSize(IslandFullSize, Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.35, true, function()
-                StatsContainer.Visible = true
+            TweenService:Create(
+                Frame,
+                TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
+                { Size = UDim2.new(0, 53, 1, 0) }
+            ):Play()
+
+            TweenService:Create(
+                StatsContainer,
+                TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                { Size = UDim2.new(0, 0, 1, 0) }
+            ):Play()
+
+            task.delay(0.25, function()
+                StatsContainer.Visible = false
             end)
+
+        else
+            StatsContainer.Visible = true
+            StatsContainer.Size = UDim2.new(0, 0, 1, 0)
+
+            TweenService:Create(
+                Frame,
+                TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
+                { Size = UDim2.new(0, 340, 1, 0) }
+            ):Play()
+
+            TweenService:Create(
+                StatsContainer,
+                TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
+                { Size = UDim2.new(1, -52, 1, 0) }
+            ):Play()
         end
     end
 
+    self.ToggleDynamicIsland = ToggleDynamicIsland
     --
-
+    
     TabFolder.Name = "TabFolder"
     TabFolder.Parent = Main
 
