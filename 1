@@ -423,34 +423,68 @@ function lib:Window(text, preset, closebind)
     end, false, Enum.KeyCode.V)
 
     -- [ DYNAMIC ISLAND API ] --
+    local IslandMinimized = false
+local IslandAnimating = false
 
-    function lib:ToggleDynamicIsland()
+local function ToggleDynamicIsland()
+    if IslandAnimating then return end
+    IslandAnimating = true
+
     IslandMinimized = not IslandMinimized
 
-    local targetWidth
     if IslandMinimized then
-        StatsContainer.Visible = false
-        targetWidth = 52
-    else
-        targetWidth = IslandFullSize.X.Offset
-    end
+        -- CONTRAER ISLAND
 
-    Frame:TweenSize(
-        UDim2.fromOffset(targetWidth, Frame.AbsoluteSize.Y),
-        Enum.EasingDirection.Out,
-        Enum.EasingStyle.Quart,
-        0.35,
-        true,
-        function()
-            if not IslandMinimized then
-                StatsContainer.Visible = true
-            end
-        end
-    )
+        local frameTween = TweenService:Create(
+            Frame,
+            TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
+            { Size = UDim2.new(0, 53, 1, 0) }
+        )
+
+        local statsTween = TweenService:Create(
+            StatsContainer,
+            TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+            { Size = UDim2.new(0, 0, 1, 0) }
+        )
+
+        frameTween:Play()
+        statsTween:Play()
+
+        statsTween.Completed:Once(function()
+            StatsContainer.Visible = false
+            IslandAnimating = false
+        end)
+
+    else
+        -- EXPANDIR ISLAND
+
+        StatsContainer.Visible = true
+        StatsContainer.Size = UDim2.new(0, 0, 1, 0)
+
+        local frameTween = TweenService:Create(
+            Frame,
+            TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
+            { Size = UDim2.new(0, 340, 1, 0) }
+        )
+
+        local statsTween = TweenService:Create(
+            StatsContainer,
+            TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
+            { Size = UDim2.new(1, -52, 1, 0) }
+        )
+
+        frameTween:Play()
+        statsTween:Play()
+
+        frameTween.Completed:Once(function()
+            IslandAnimating = false
+        end)
+    end
 end
 
+    self.ToggleDynamicIsland = ToggleDynamicIsland
     --
-
+    
     TabFolder.Name = "TabFolder"
     TabFolder.Parent = Main
 
