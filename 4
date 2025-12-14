@@ -29,7 +29,7 @@ local startTime = tick()
 local Camera = workspace.CurrentCamera
 local Mouse = LocalPlayer:GetMouse()
 
-local PresetColor = Color3.fromRGB(44, 120, 224)
+local PresetColor = Color3.fromRGB(255, 255, 255)
 local CloseBind = Enum.KeyCode.RightControl
 local isGuiOpened = true
 
@@ -226,7 +226,7 @@ local pingHighIcon = loadAsset(assets.ping_high.file)
 
 function lib:Window(text, preset, closebind)
     CloseBind = closebind or Enum.KeyCode.RightControl
-    PresetColor = preset or Color3.fromRGB(44, 120, 224)
+    PresetColor = preset or Color3.fromRGB(255, 255, 255)
     fs = false
 
     local Main = Instance.new("Frame")
@@ -423,47 +423,64 @@ function lib:Window(text, preset, closebind)
     end, false, Enum.KeyCode.V)
 
     -- [ DYNAMIC ISLAND API ] --
+    
+    local IslandMinimized = false
+    local IslandAnimating = false
+
     local function ToggleDynamicIsland()
-    IslandMinimized = not IslandMinimized
+        if IslandAnimating then return end
+        IslandAnimating = true
 
-    if IslandMinimized then
-        -- Contraer Island
-        TweenService:Create(
-            Frame,
-            TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-            { Size = UDim2.new(0, 53, 1, 0) }
-        ):Play()
+        IslandMinimized = not IslandMinimized
 
-        -- Contraer stats
-        TweenService:Create(
-            StatsContainer,
-            TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-            { Size = UDim2.new(0, 0, 1, 0) }
-        ):Play()
+        if IslandMinimized then
+            local frameTween = TweenService:Create(
+                Frame,
+                TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
+                { Size = UDim2.new(0, 51, 1, 0) }
+            )
 
-        task.delay(0.25, function()
-            StatsContainer.Visible = false
-        end)
-    else
-        -- Expandir Island
-        TweenService:Create(
-            Frame,
-            TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-            { Size = IslandFullSize }
-        ):Play()
+            local statsTween = TweenService:Create(
+                StatsContainer,
+                TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                { Size = UDim2.new(0, 0, 1, 0) }
+            )
 
-        StatsContainer.Visible = true
-        StatsContainer.Size = UDim2.new(0, 0, 1, 0)
+            frameTween:Play()
+            statsTween:Play()
 
-        TweenService:Create(
-            StatsContainer,
-            TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
-            { Size = StatsFullSize }
-        ):Play()
+            statsTween.Completed:Once(function()
+                StatsContainer.Visible = false
+                IslandAnimating = false
+            end)
+
+        else
+
+            StatsContainer.Visible = true
+            StatsContainer.Size = UDim2.new(0, 0, 1, 0)
+
+            local frameTween = TweenService:Create(
+                Frame,
+                TweenInfo.new(0.35, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
+                { Size = UDim2.new(0, 340, 1, 0) }
+            )
+
+            local statsTween = TweenService:Create(
+                StatsContainer,
+                TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),
+                { Size = UDim2.new(1, -52, 1, 0) }
+            )
+
+            frameTween:Play()
+            statsTween:Play()
+
+            frameTween.Completed:Once(function()
+                IslandAnimating = false
+            end)
+        end
     end
-end
 
-self.ToggleDynamicIsland = ToggleDynamicIsland
+    self.ToggleDynamicIsland = ToggleDynamicIsland
     
     TabFolder.Name = "TabFolder"
     TabFolder.Parent = Main
@@ -1735,6 +1752,49 @@ self.ToggleDynamicIsland = ToggleDynamicIsland
             ColorpickerBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
             ColorpickerBtn.TextSize = 14.000
 
+            local ResetColorBtn = Instance.new("TextButton")
+            local ResetColorCorner = Instance.new("UICorner")
+            local ResetColorTitle = Instance.new("TextLabel")
+
+            ResetColorBtn.Name = "ResetColorBtn"
+            ResetColorBtn.Parent = ColorpickerTitle
+            ResetColorBtn.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            ResetColorBtn.Position = UDim2.new(1.26349044, 0, 1.35, 0)
+            ResetColorBtn.Size = UDim2.new(0, 104, 0, 32)
+            ResetColorBtn.AutoButtonColor = false
+            ResetColorBtn.Text = ""
+
+            ResetColorCorner.CornerRadius = UDim.new(0, 5)
+            ResetColorCorner.Parent = ResetColorBtn
+
+            ResetColorTitle.Parent = ResetColorBtn
+            ResetColorTitle.BackgroundTransparency = 1
+            ResetColorTitle.Size = UDim2.new(1, 0, 1, 0)
+            ResetColorTitle.Font = Enum.Font.Gotham
+            ResetColorTitle.Text = "Reset Color"
+            ResetColorTitle.TextSize = 14
+            ResetColorTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+            ResetColorBtn.MouseButton1Down:Connect(function()
+                if RainbowColorPicker then
+                    return
+                end
+
+                local h, s, v = Color3.toHSV(preset)
+
+                ColorH = h
+                ColorS = s
+                ColorV = v
+
+                BoxColor.BackgroundColor3 = preset
+                Color.BackgroundColor3 = Color3.fromHSV(h, 1, 1)
+
+                ColorSelection.Position = UDim2.new(s, 0, 1 - v, 0)
+               HueSelection.Position = UDim2.new(0.48, 0, 1 - h, 0)
+
+                pcall(callback, preset)
+            end)
+
             RainbowToggle.Name = "RainbowToggle"
             RainbowToggle.Parent = ColorpickerTitle
             RainbowToggle.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
@@ -1758,7 +1818,7 @@ self.ToggleDynamicIsland = ToggleDynamicIsland
             RainbowToggleTitle.Font = Enum.Font.Gotham
             RainbowToggleTitle.Text = "Rainbow"
             RainbowToggleTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-            RainbowToggleTitle.TextSize = 14.000
+            RainbowToggleTitle.TextSize = 12.000
             RainbowToggleTitle.TextXAlignment = Enum.TextXAlignment.Left
 
             FrameRainbowToggle1.Name = "FrameRainbowToggle1"
@@ -2191,6 +2251,49 @@ self.ToggleDynamicIsland = ToggleDynamicIsland
             ColorpickerBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
             ColorpickerBtn.TextSize = 14.000
 
+            local ResetColorBtn = Instance.new("TextButton")
+            local ResetColorCorner = Instance.new("UICorner")
+            local ResetColorTitle = Instance.new("TextLabel")
+
+            ResetColorBtn.Name = "ResetColorBtn"
+            ResetColorBtn.Parent = ColorpickerTitle
+            ResetColorBtn.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            ResetColorBtn.Position = UDim2.new(1.26349044, 0, 1.35, 0)
+            ResetColorBtn.Size = UDim2.new(0, 104, 0, 32)
+            ResetColorBtn.AutoButtonColor = false
+            ResetColorBtn.Text = ""
+
+            ResetColorCorner.CornerRadius = UDim.new(0, 5)
+            ResetColorCorner.Parent = ResetColorBtn
+
+            ResetColorTitle.Parent = ResetColorBtn
+            ResetColorTitle.BackgroundTransparency = 1
+            ResetColorTitle.Size = UDim2.new(1, 0, 1, 0)
+            ResetColorTitle.Font = Enum.Font.Gotham
+            ResetColorTitle.Text = "Reset Color"
+            ResetColorTitle.TextSize = 14
+            ResetColorTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+            ResetColorBtn.MouseButton1Down:Connect(function()
+                if RainbowColorPicker then
+                    return
+                end
+
+                local h, s, v = Color3.toHSV(preset)
+
+                ColorH = h
+                ColorS = s
+                ColorV = v
+
+                BoxColor.BackgroundColor3 = preset
+                Color.BackgroundColor3 = Color3.fromHSV(h, 1, 1)
+
+                ColorSelection.Position = UDim2.new(s, 0, 1 - v, 0)
+               HueSelection.Position = UDim2.new(0.48, 0, 1 - h, 0)
+
+                pcall(callback, preset)
+            end)
+
             RainbowToggle.Name = "RainbowToggle"
             RainbowToggle.Parent = ColorpickerTitle
             RainbowToggle.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
@@ -2214,7 +2317,7 @@ self.ToggleDynamicIsland = ToggleDynamicIsland
             RainbowToggleTitle.Font = Enum.Font.Gotham
             RainbowToggleTitle.Text = "Rainbow"
             RainbowToggleTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-            RainbowToggleTitle.TextSize = 14.000
+            RainbowToggleTitle.TextSize = 12.000
             RainbowToggleTitle.TextXAlignment = Enum.TextXAlignment.Left
 
             FrameRainbowToggle1.Name = "FrameRainbowToggle1"
