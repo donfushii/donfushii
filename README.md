@@ -22,7 +22,7 @@
 
 ## • Who i am?
 
-**_1. Im a user like anyone else, you can call me Fushii._**
+**_1. Im a user like anyone else, you can call me Fushii._** ^^
 > [!]: Currently I really like using the programming language "Python" & "LUA". I have several projects in these languages that haven’t been released yet.
 
 **_2. Would you like to contact me?_**
