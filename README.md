@@ -5,12 +5,12 @@
 -->
 
 <p align="center">
-	<a href="https://discord.gg/sH5Mh2XfPC"><img src=".assets/icon.ico" alt="Imperium" height="90" /></a>
+	<a href="https://discord.com/users/866057144944033802"><img src=".assets/icon.ico" alt="Imperium" height="90" /></a>
 </p>
 
 <h4 align="center">FUSHII'S | PROFILE</h4>
 <p align="center">
-	.gg/sH5Mh2XfPC
+	Imperium
 </p>
 
 <p align="center">
@@ -26,7 +26,7 @@
 > [!]: Currently I really like using the programming language "Python" & "LUA". I have several projects in these languages that haven’t been released yet.
 
 **_2. Would you like to contact me?_**
-> [!]: You can Add me on Discord at [@donfushii](https://discord.com/users/1135775008703127672) Or simply click on the image below to reach me.
+> [!]: You can Add me on Discord at [@donfushii](https://discord.com/users/866057144944033802) Or simply click on the image below to reach me.
 
 <br/><br/>
 
@@ -40,7 +40,7 @@
 -->
 
 <p align="center">
-	<a href="https://discord.gg/sH5Mh2XfPC"><img src=".assets/image.png" alt="Imperium" height="200" /></a>
+	<a href="https://discord.com/users/866057144944033802"><img src=".assets/image.png" alt="Imperium" height="200" /></a>
 </p>
 
 
@@ -63,7 +63,7 @@
 ## • My projects:
 
 **_1. What project are you working on?_**
-> [A]: Right now, I’m working on [Imperium](https://github.com/Imperium-Development/Imperium/tree/main). A free Script for Roblox. This project has been in development for a good while and was created with good intentions and is intended for PERSONAL use only even though it’s now public. [DISCONTINUED]
+> [A]: Right now, I’m working on [Imperium](https://github.com/Imperium-Development/Imperium/tree/main). A free Script for Roblox. This project has been in development for a good while and was created with good intentions and is intended for PERSONAL use only even though it’s now public.
 
 **_2. Do you have any more projects?_**
 > [A]: Yes, I have more projects. One of them is [Vencord Things](https://github.com/donfushii/Vencord-Things), which contains themes and plugins to customize your Discord with the external app "Vencord" This project is fully open source.
