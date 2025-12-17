@@ -3014,6 +3014,153 @@ function lib:Window(text, preset, closebind)
             return lbl
         end
 
+        -- [ d9iscrod label modify ] --
+
+        function tabcontent:ImageDiscord1(config)
+            local lbl = {}
+            local invalidBuilt = false
+        
+            local Label = Instance.new("TextButton")
+            local LabelCorner = Instance.new("UICorner")
+        
+            Label.Name = "BackgroundButton"
+            Label.Parent = Tab
+            Label.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            Label.Size = UDim2.new(0, 363, 0, 135)
+            Label.AutoButtonColor = false
+            Label.Text = ""
+        
+            LabelCorner.CornerRadius = UDim.new(0, 5)
+            LabelCorner.Parent = Label
+        
+            local LabelChangelogs = Instance.new("TextButton")
+            local LabelChangelogsCorner = Instance.new("UICorner")
+        
+            LabelChangelogs.Parent = Tab
+            LabelChangelogs.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            LabelChangelogs.Size = UDim2.new(0, 363, 0, 100)
+            LabelChangelogs.AutoButtonColor = false
+            LabelChangelogs.Text = ""
+        
+            LabelChangelogsCorner.CornerRadius = UDim.new(0, 5)
+            LabelChangelogsCorner.Parent = LabelChangelogs
+        
+            local LogsTitleLabel = Instance.new("TextLabel")
+            LogsTitleLabel.Parent = LabelChangelogs
+            LogsTitleLabel.BackgroundTransparency = 1
+            LogsTitleLabel.Position = UDim2.new(0, 10, 0, 5)
+            LogsTitleLabel.Size = UDim2.new(0, 155, 0, 20)
+            LogsTitleLabel.Font = Enum.Font.Gotham
+            LogsTitleLabel.Text = "Changelogs"
+            LogsTitleLabel.TextColor3 = Color3.fromRGB(141, 141, 141)
+            LogsTitleLabel.TextSize = 10
+            LogsTitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        
+            local ChangelogsLabel = Instance.new("TextLabel")
+            ChangelogsLabel.Parent = LabelChangelogs
+            ChangelogsLabel.BackgroundTransparency = 1
+            ChangelogsLabel.Position = UDim2.new(0, 9, 0, 30)
+            ChangelogsLabel.Size = UDim2.new(1, -15, 0, 60)
+            ChangelogsLabel.Font = Enum.Font.Gotham
+            ChangelogsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            ChangelogsLabel.TextSize = 14
+            ChangelogsLabel.TextXAlignment = Enum.TextXAlignment.Left
+        
+            local ImageLabel = Instance.new("ImageLabel")
+            ImageLabel.Parent = Label
+            ImageLabel.BackgroundTransparency = 1
+            ImageLabel.Position = UDim2.new(0, 5, 0, 17)
+            ImageLabel.Size = UDim2.new(0, 70, 0, 70)
+        
+            local ImageLabelCorner = Instance.new("UICorner")
+            ImageLabelCorner.CornerRadius = UDim.new(0, 5)
+            ImageLabelCorner.Parent = ImageLabel
+        
+            local SublabelTitle1 = Instance.new("TextLabel")
+            SublabelTitle1.Parent = Label
+            SublabelTitle1.BackgroundTransparency = 1
+            SublabelTitle1.Position = UDim2.new(0.2, 10, 0, 15)
+            SublabelTitle1.Size = UDim2.new(0, 270, 0, 42)
+            SublabelTitle1.Font = Enum.Font.Gotham
+            SublabelTitle1.TextColor3 = Color3.fromRGB(255, 255, 255)
+            SublabelTitle1.TextSize = 14
+            SublabelTitle1.TextXAlignment = Enum.TextXAlignment.Left
+        
+            local JoinSubButton = Instance.new("TextButton")
+            JoinSubButton.Parent = Label
+            JoinSubButton.BackgroundColor3 = Color3.fromRGB(119, 207, 116)
+            JoinSubButton.Position = UDim2.new(0, 7, 0, 95)
+            JoinSubButton.Size = UDim2.new(0, 350, 0, 33)
+            JoinSubButton.Font = Enum.Font.Gotham
+            JoinSubButton.Text = "Join"
+            JoinSubButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            JoinSubButton.TextSize = 14
+        
+            local JoinSubButtonCorner = Instance.new("UICorner")
+            JoinSubButtonCorner.CornerRadius = UDim.new(0, 5)
+            JoinSubButtonCorner.Parent = JoinSubButton
+        
+            local function makeInvalidUI()
+                if invalidBuilt then return end
+                invalidBuilt = true
+        
+                ImageLabel.Position = UDim2.new(0, 5, 0, 40)
+                SublabelTitle1.Visible = false
+                JoinSubButton.Visible = false
+        
+                local Inv1 = Instance.new("TextLabel", Label)
+                Inv1.BackgroundTransparency = 1
+                Inv1.Position = UDim2.new(0, 20, 0, 10)
+                Inv1.Size = UDim2.new(0, 250, 0, 20)
+                Inv1.Font = Enum.Font.Gotham
+                Inv1.Text = "You sent an invite, but..."
+                Inv1.TextColor3 = Color3.fromRGB(172, 172, 172)
+                Inv1.TextSize = 14
+                Inv1.TextXAlignment = Enum.TextXAlignment.Left
+        
+                local Inv2 = Instance.new("TextLabel", Label)
+                Inv2.BackgroundTransparency = 1
+                Inv2.Position = UDim2.new(0.2, 10, 0, 55)
+                Inv2.Size = UDim2.new(0, 270, 0, 20)
+                Inv2.Font = Enum.Font.Gotham
+                Inv2.Text = "Invalid Invite"
+                Inv2.TextColor3 = Color3.fromRGB(255, 53, 53)
+                Inv2.TextSize = 14
+                Inv2.TextXAlignment = Enum.TextXAlignment.Left
+
+                local Inv3 = Instance.new("TextLabel")
+                Inv3.Parent = Label
+                Inv3.BackgroundTransparency = 1
+                Inv3.Position = UDim2.new(0.2, 10, 0, 65)
+                Inv3.Size = UDim2.new(0, 250, 0, 42)
+                Inv3.Font = Enum.Font.Gotham
+                Inv3.Text = "Try sending a new invite!"
+                Inv3.TextColor3 = Color3.fromRGB(172, 172, 172)
+                Inv3.TextSize = 14
+                Inv3.TextXAlignment = Enum.TextXAlignment.Left
+                Inv3.TextTruncate = Enum.TextTruncate.AtEnd
+            end
+        
+            if typeof(config) ~= "table" or not config.invite then
+                ChangelogsLabel.Text = "  ・  No recent updates."
+                makeInvalidUI()
+                return lbl
+            end
+
+            ChangelogsLabel.Text = config.changelog or "  ・  No recent updates."
+            ImageLabel.Image = config.image or logoAsset
+            SublabelTitle1.Text = config.serverName or "Discord Server"
+
+            JoinSubButton.MouseButton1Click:Connect(function()
+                if setclipboard then
+                    setclipboard(config.invite)
+                end
+            end)
+
+            return lbl
+        end
+
+
         function tabcontent:Textbox(text, disapper, callback)
             local Textbox = Instance.new("Frame")
             local TextboxCorner = Instance.new("UICorner")
