@@ -64,6 +64,3 @@
 
 **_1. What project are you working on?_**
 > [A]: Right now, I’m working on [Imperium](https://github.com/Imperium-Development/Imperium/tree/main). A free Script for Roblox. This project has been in development for a good while and was created with good intentions and is intended for PERSONAL use only even though it’s now public.
-
-**_2. Do you have any more projects?_**
-> [A]: Yes, I have more projects. One of them is [Vencord Things](https://github.com/donfushii/Vencord-Things), which contains themes and plugins to customize your Discord with the external app "Vencord" This project is fully open source.
