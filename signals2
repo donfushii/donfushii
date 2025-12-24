@@ -6,113 +6,141 @@ Redistribution allowed only if unmodified. No deobfuscation or resale.
 --]]
 
 local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+
 local LocalPlayer = Players.LocalPlayer
+local BACKEND_URL = "https://imperiumhub.vercel.app/api/emojis"
 
 --========================
 -- LISTAS
 --========================
 
-local ADMINS   = {5127756688, 8806860954}
-local MODS     = {000}
-local PREMIUM  = {000}
+local ADMINS = {
+    5127756688,
+    8806860954
+}
 
---========================
--- VALS (IGUAL A NULLFIRE)
---========================
+local MODS = {
+    000
+}
 
-local vals = {
-	IU = {} -- Imperium Users (por Name)
+local PREMIUM = {
+    000
 }
 
 --========================
--- FUNCION DISPLAY
+-- TABLA BACKEND
 --========================
 
-local function applyDisplay(player)
-	local char = player.Character
-	if not char then return end
-
-	local hum = char:FindFirstChildWhichIsA("Humanoid")
-	if not hum then return end
-
-	local id = player.UserId
-
-	if table.find(ADMINS, id) then
-		hum.DisplayName = "[✨] " .. player.DisplayName
-	elseif table.find(MODS, id) then
-		hum.DisplayName = "[🔨] " .. player.DisplayName
-	elseif table.find(PREMIUM, id) then
-		hum.DisplayName = "[⭐] " .. player.DisplayName
-	elseif vals.IU[player.Name] then
-		hum.DisplayName = "[😎] " .. player.DisplayName
-	end
-end
+local EXECUTORS = {} -- [userid] = true
 
 --========================
--- CHARACTER (CLAVE)
+-- HEARTBEAT (POST CONSTANTE)
 --========================
 
-local function character(plr)
-	if plr == LocalPlayer then return end
-	if not plr.Character then return end
-	applyDisplay(plr)
-end
-
---========================
--- PLAYER HANDLER (IGUAL)
---========================
-
-local function player(plr)
-	if not plr or plr == LocalPlayer then return end
-
-	if plr.Character then
-		character(plr)
-	end
-
-	plr.Changed:Connect(function()
-		character(plr)
-	end)
-end
-
-for _, plr in ipairs(Players:GetPlayers()) do
-	player(plr)
-	task.wait()
-end
-
-Players.PlayerAdded:Connect(player)
-
---========================
--- SIGNALS (MISMO FLOW)
---========================
-
-local signals
-pcall(function()
-	signals = loadstring(game:HttpGet(
-		"https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Core/Libraries/Signals/Main.lua"
-	))()
+task.spawn(function()
+    while true do
+        task.wait(8) -- menor al timeout del backend
+        pcall(function()
+            request({
+                Url = BACKEND_URL,
+                Method = "POST",
+                Headers = {
+                    ["Content-Type"] = "application/json"
+                },
+                Body = HttpService:JSONEncode({
+                    uid = LocalPlayer.UserId
+                })
+            })
+        end)
+    end
 end)
 
-if signals and not getgenv().ImperiumSentSignal then
-	getgenv().ImperiumSentSignal = true
+--========================
+-- DISPLAYNAME
+--========================
 
-	signals:OnSignalRecieve(function(plr, name)
-		if name == "IMIU" then
-			vals.IU[plr.Name] = true
-			character(plr)
+local function updateDisplayName(player)
+    local humanoid = player.Character and player.Character:FindFirstChildWhichIsA("Humanoid")
+    if not humanoid then return end
 
-		elseif name == "GETIU" then
-			signals:SendSignal("all", "IMIU")
-		end
-	end)
+    local plrID = player.UserId
 
-	task.spawn(signals.SendSignal, signals, "all", "IMIU")
-	task.spawn(signals.SendSignal, signals, "all", "GETIU")
+    if table.find(ADMINS, plrID) then
+        humanoid.DisplayName = "[✨] " .. player.DisplayName
+    elseif table.find(MODS, plrID) then
+        humanoid.DisplayName = "[🔨] " .. player.DisplayName
+    elseif table.find(PREMIUM, plrID) then
+        humanoid.DisplayName = "[⭐] " .. player.DisplayName
+    elseif EXECUTORS[plrID] then
+        humanoid.DisplayName = "[😎] " .. player.DisplayName
+    end
 end
 
 --========================
--- LOCAL PLAYER
+-- OBTENER EJECUTORES
 --========================
+
+local function fetchExecutors()
+    local res = request({
+        Url = BACKEND_URL,
+        Method = "GET"
+    })
+
+    if res and res.Body then
+        local data = HttpService:JSONDecode(res.Body)
+
+        EXECUTORS = {}
+        for uid in pairs(data) do
+            EXECUTORS[tonumber(uid)] = true
+        end
+
+        -- 🔥 FIX REAL: repaint inmediato
+        for _, player in ipairs(Players:GetPlayers()) do
+            updateDisplayName(player)
+        end
+    end
+end
+
+-- primera carga
+pcall(fetchExecutors)
+
+-- refresco
+task.spawn(function()
+    while true do
+        task.wait(10)
+        pcall(fetchExecutors)
+    end
+end)
+
+--========================
+-- CHARACTER HANDLER
+--========================
+
+local function onCharacterAdded(player)
+    player.CharacterAdded:Connect(function()
+        task.wait(0.1)
+        updateDisplayName(player)
+    end)
+end
+
+--========================
+-- INIT
+--========================
+
+local function ImperiumEmojis()
+    for _, player in ipairs(Players:GetPlayers()) do
+        onCharacterAdded(player)
+        updateDisplayName(player)
+    end
+end
 
 LocalPlayer.CharacterAdded:Connect(function()
-	applyDisplay(LocalPlayer)
+    updateDisplayName(LocalPlayer)
 end)
+
+Players.PlayerAdded:Connect(function(player)
+    onCharacterAdded(player)
+end)
+
+pcall(ImperiumEmojis)
