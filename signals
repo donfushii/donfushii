@@ -1,0 +1,100 @@
+--[[ 
+
+Copyright (C) 2025 github.com/Imperium-Development/Imperium ♡
+Redistribution allowed only if unmodified. No deobfuscation or resale.
+
+--]]
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local ADMINS = {
+    5127756688,
+    8806860954
+}
+
+local MODS = {
+    000
+}
+
+local PREMIUM = {
+    000
+}
+
+local signals
+local ImperiumUsers = {}
+
+pcall(function()
+    -- Cambiar url por ImperiumSignalsDecrypt.lua cuando esté subido.
+    signals = loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Core/Libraries/Signals/Main.lua"))()
+end)
+
+if signals and not getgenv().ImperiumSignalsLoaded then
+    getgenv().ImperiumSignalsLoaded = true
+
+    signals:OnSignalRecieve(function(plr, name)
+        if name == "IMPERIUM_USER" then
+            ImperiumUsers[plr.UserId] = true
+            task.defer(function()
+                updateDisplayName(plr)
+            end)
+
+        elseif name == "GET_IMPERIUM_USERS" then
+            signals:SendSignal("all", "IMPERIUM_USER")
+        end
+    end)
+
+    task.spawn(signals.SendSignal, signals, "all", "IMPERIUM_USER")
+    task.spawn(signals.SendSignal, signals, "all", "GET_IMPERIUM_USERS")
+end
+
+local function formatNumber(n)
+    n = tostring(n)
+    return n:reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
+end
+
+function updateDisplayName(player)
+    local humanoid = player.Character and player.Character:FindFirstChildWhichIsA("Humanoid")
+    if not humanoid then return end
+
+    local id = player.UserId
+
+    if table.find(ADMINS, id) then
+        humanoid.DisplayName = "[✨] " .. player.DisplayName
+
+    elseif table.find(MODS, id) then
+        humanoid.DisplayName = "[🔨] " .. player.DisplayName
+
+    elseif table.find(PREMIUM, id) then
+        humanoid.DisplayName = "[⭐] " .. player.DisplayName
+
+    elseif ImperiumUsers[id] then
+        humanoid.DisplayName = "[😎] " .. player.DisplayName
+    end
+end
+
+local function onCharacterAdded(player)
+    player.CharacterAdded:Connect(function()
+        updateDisplayName(player)
+    end)
+end
+
+local function ImperiumEmojis()
+    for _, player in ipairs(Players:GetPlayers()) do
+        onCharacterAdded(player)
+        updateDisplayName(player)
+    end
+end
+
+LocalPlayer.CharacterAdded:Connect(function()
+    updateDisplayName(LocalPlayer)
+end)
+
+Players.PlayerAdded:Connect(function(player)
+    onCharacterAdded(player)
+end)
+
+local succ, err = pcall(ImperiumEmojis)
+if not succ then
+    warn("> Imperium | Error • While executing Name Emojis: " .. tostring(err))
+end
