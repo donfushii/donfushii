@@ -9,7 +9,7 @@ local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 
 local LocalPlayer = Players.LocalPlayer
-local BACKEND_URL = "https://api-emojis.imperiumstack.workers.dev/"
+local BACKEND_URL = "https://imperiumhub.vercel.app/api/emojis"
 
 --========================
 -- LISTAS
@@ -29,30 +29,35 @@ local PREMIUM = {
 }
 
 --========================
--- EJECUTORES (BACKEND)
+-- TABLA BACKEND
 --========================
 
 local EXECUTORS = {} -- [userid] = true
 
 --========================
--- REGISTRAR EJECUCIÓN
+-- HEARTBEAT (POST CONSTANTE)
 --========================
 
-pcall(function()
-    request({
-        Url = BACKEND_URL,
-        Method = "POST",
-        Headers = {
-            ["Content-Type"] = "application/json"
-        },
-        Body = HttpService:JSONEncode({
-            uid = LocalPlayer.UserId
-        })
-    })
+task.spawn(function()
+    while true do
+        task.wait(8) -- debe ser MENOR al TIMEOUT del backend
+        pcall(function()
+            request({
+                Url = BACKEND_URL,
+                Method = "POST",
+                Headers = {
+                    ["Content-Type"] = "application/json"
+                },
+                Body = HttpService:JSONEncode({
+                    uid = LocalPlayer.UserId
+                })
+            })
+        end)
+    end
 end)
 
 --========================
--- FETCH EXECUTORS
+-- OBTENER EJECUTORES
 --========================
 
 local function fetchExecutors()
@@ -64,16 +69,16 @@ local function fetchExecutors()
     if res and res.Body then
         local data = HttpService:JSONDecode(res.Body)
         EXECUTORS = {}
-
         for uid in pairs(data) do
             EXECUTORS[tonumber(uid)] = true
         end
     end
 end
 
+-- primera carga
 pcall(fetchExecutors)
 
--- refresco cada 10s
+-- refrescar cada 10s
 task.spawn(function()
     while true do
         task.wait(10)
@@ -82,7 +87,7 @@ task.spawn(function()
 end)
 
 --========================
--- DISPLAY NAME
+-- DISPLAYNAME
 --========================
 
 local function updateDisplayName(player)
@@ -106,7 +111,7 @@ local function updateDisplayName(player)
 end
 
 --========================
--- CHARACTER HANDLING
+-- CHARACTER HANDLER
 --========================
 
 local function onCharacterAdded(player)
@@ -120,9 +125,11 @@ end
 -- INIT
 --========================
 
-for _, player in ipairs(Players:GetPlayers()) do
-    onCharacterAdded(player)
-    updateDisplayName(player)
+local function ImperiumEmojis()
+    for _, player in ipairs(Players:GetPlayers()) do
+        onCharacterAdded(player)
+        updateDisplayName(player)
+    end
 end
 
 LocalPlayer.CharacterAdded:Connect(function()
@@ -132,3 +139,8 @@ end)
 Players.PlayerAdded:Connect(function(player)
     onCharacterAdded(player)
 end)
+
+local succ, err = pcall(ImperiumEmojis)
+if not succ then
+    warn("> Imperium | Error • While executing Name Emojis: " .. tostring(err))
+end
