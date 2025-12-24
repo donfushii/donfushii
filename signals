@@ -6,7 +6,14 @@ Redistribution allowed only if unmodified. No deobfuscation or resale.
 --]]
 
 local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+
 local LocalPlayer = Players.LocalPlayer
+local BACKEND_URL = "https://api-emojis.imperiumstack.workers.dev/"
+
+--========================
+-- LISTAS
+--========================
 
 local ADMINS = {
     5127756688,
@@ -21,69 +28,101 @@ local PREMIUM = {
     000
 }
 
-local signals
-local ImperiumUsers = {}
+--========================
+-- EJECUTORES (BACKEND)
+--========================
+
+local EXECUTORS = {} -- [userid] = true
+
+--========================
+-- REGISTRAR EJECUCIÓN
+--========================
 
 pcall(function()
-    -- Cambiar url por ImperiumSignalsDecrypt.lua cuando esté subido.
-    signals = loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Core/Libraries/Signals/Main.lua"))()
+    request({
+        Url = BACKEND_URL,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = HttpService:JSONEncode({
+            uid = LocalPlayer.UserId
+        })
+    })
 end)
 
-if signals and not getgenv().ImperiumSignalsLoaded then
-    getgenv().ImperiumSignalsLoaded = true
+--========================
+-- FETCH EXECUTORS
+--========================
 
-    signals:OnSignalRecieve(function(plr, name)
-        if name == "IMPERIUM_USER" then
-            ImperiumUsers[plr.UserId] = true
-            task.defer(function()
-                updateDisplayName(plr)
-            end)
+local function fetchExecutors()
+    local res = request({
+        Url = BACKEND_URL,
+        Method = "GET"
+    })
 
-        elseif name == "GET_IMPERIUM_USERS" then
-            signals:SendSignal("all", "IMPERIUM_USER")
+    if res and res.Body then
+        local data = HttpService:JSONDecode(res.Body)
+        EXECUTORS = {}
+
+        for uid in pairs(data) do
+            EXECUTORS[tonumber(uid)] = true
         end
-    end)
-
-    task.spawn(signals.SendSignal, signals, "all", "IMPERIUM_USER")
-    task.spawn(signals.SendSignal, signals, "all", "GET_IMPERIUM_USERS")
+    end
 end
 
-local function formatNumber(n)
-    n = tostring(n)
-    return n:reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
-end
+pcall(fetchExecutors)
 
-function updateDisplayName(player)
+-- refresco cada 10s
+task.spawn(function()
+    while true do
+        task.wait(10)
+        pcall(fetchExecutors)
+    end
+end)
+
+--========================
+-- DISPLAY NAME
+--========================
+
+local function updateDisplayName(player)
     local humanoid = player.Character and player.Character:FindFirstChildWhichIsA("Humanoid")
     if not humanoid then return end
 
-    local id = player.UserId
+    local plrID = player.UserId
 
-    if table.find(ADMINS, id) then
+    if table.find(ADMINS, plrID) then
         humanoid.DisplayName = "[✨] " .. player.DisplayName
 
-    elseif table.find(MODS, id) then
+    elseif table.find(MODS, plrID) then
         humanoid.DisplayName = "[🔨] " .. player.DisplayName
 
-    elseif table.find(PREMIUM, id) then
+    elseif table.find(PREMIUM, plrID) then
         humanoid.DisplayName = "[⭐] " .. player.DisplayName
 
-    elseif ImperiumUsers[id] then
+    elseif EXECUTORS[plrID] then
         humanoid.DisplayName = "[😎] " .. player.DisplayName
     end
 end
 
+--========================
+-- CHARACTER HANDLING
+--========================
+
 local function onCharacterAdded(player)
     player.CharacterAdded:Connect(function()
+        task.wait(0.1)
         updateDisplayName(player)
     end)
 end
 
-local function ImperiumEmojis()
-    for _, player in ipairs(Players:GetPlayers()) do
-        onCharacterAdded(player)
-        updateDisplayName(player)
-    end
+--========================
+-- INIT
+--========================
+
+for _, player in ipairs(Players:GetPlayers()) do
+    onCharacterAdded(player)
+    updateDisplayName(player)
 end
 
 LocalPlayer.CharacterAdded:Connect(function()
@@ -93,8 +132,3 @@ end)
 Players.PlayerAdded:Connect(function(player)
     onCharacterAdded(player)
 end)
-
-local succ, err = pcall(ImperiumEmojis)
-if not succ then
-    warn("> Imperium | Error • While executing Name Emojis: " .. tostring(err))
-end
