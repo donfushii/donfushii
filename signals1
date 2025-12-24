@@ -6,80 +6,103 @@ Redistribution allowed only if unmodified. No deobfuscation or resale.
 --]]
 
 local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+
 local LocalPlayer = Players.LocalPlayer
+local BACKEND_URL = "https://imperiumhub.vercel.app/api/emojis"
 
 --========================
 -- LISTAS
 --========================
 
-local ADMINS = {5127756688, 8806860954}
-local MODS = {000}
-local PREMIUM = {000}
+local ADMINS = {
+    5127756688,
+    8806860954
+}
+
+local MODS = {
+    000
+}
+
+local PREMIUM = {
+    000
+}
 
 --========================
--- TABLA GLOBAL
+-- TABLA BACKEND
 --========================
 
-local ImperiumUsers = {}
+local EXECUTORS = {} -- [userid] = true
 
 --========================
--- FUNCION CLAVE (ANTES)
+-- REGISTRAR EJECUCIÓN
 --========================
 
-local function updateDisplayName(player)
-    local char = player.Character
-    if not char then return end
+pcall(function()
+    request({
+        Url = BACKEND_URL,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = HttpService:JSONEncode({
+            uid = LocalPlayer.UserId
+        })
+    })
+end)
 
-    local humanoid = char:FindFirstChildWhichIsA("Humanoid")
-    if not humanoid then return end
+--========================
+-- OBTENER EJECUTORES
+--========================
 
-    local id = player.UserId
+local function fetchExecutors()
+    local res = request({
+        Url = BACKEND_URL,
+        Method = "GET"
+    })
 
-    if table.find(ADMINS, id) then
-        humanoid.DisplayName = "[✨] " .. player.DisplayName
-
-    elseif table.find(MODS, id) then
-        humanoid.DisplayName = "[🔨] " .. player.DisplayName
-
-    elseif table.find(PREMIUM, id) then
-        humanoid.DisplayName = "[⭐] " .. player.DisplayName
-
-    elseif ImperiumUsers[id] then
-        humanoid.DisplayName = "[😎] " .. player.DisplayName
+    if res and res.Body then
+        local data = HttpService:JSONDecode(res.Body)
+        EXECUTORS = {}
+        for uid in pairs(data) do
+            EXECUTORS[tonumber(uid)] = true
+        end
     end
 end
 
---========================
--- SIGNALS
---========================
+-- primera carga
+pcall(fetchExecutors)
 
-local signals
-pcall(function()
-    signals = loadstring(game:HttpGet(
-        "https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Core/Libraries/Signals/Main.lua"
-    ))()
+-- refrescar cada 10s
+task.spawn(function()
+    while true do
+        task.wait(10)
+        pcall(fetchExecutors)
+    end
 end)
 
-if signals and not getgenv().ImperiumSignalsLoaded then
-    getgenv().ImperiumSignalsLoaded = true
+--========================
+-- DISPLAYNAME
+--========================
 
-    signals:OnSignalRecieve(function(plr, name)
-        if name == "IMPERIUM_USER" then
-            ImperiumUsers[plr.UserId] = true
+local function updateDisplayName(player)
+    local humanoid = player.Character and player.Character:FindFirstChildWhichIsA("Humanoid")
+    if not humanoid then return end
 
-            -- 🔥 FORZAR REFRESH REAL
-            task.defer(function()
-                updateDisplayName(plr)
-            end)
+    local plrID = player.UserId
 
-        elseif name == "GET_IMPERIUM_USERS" then
-            signals:SendSignal("all", "IMPERIUM_USER")
-        end
-    end)
+    if table.find(ADMINS, plrID) then
+        humanoid.DisplayName = "[✨] " .. player.DisplayName
 
-    -- Avisar presencia
-    task.spawn(signals.SendSignal, signals, "all", "IMPERIUM_USER")
-    task.spawn(signals.SendSignal, signals, "all", "GET_IMPERIUM_USERS")
+    elseif table.find(MODS, plrID) then
+        humanoid.DisplayName = "[🔨] " .. player.DisplayName
+
+    elseif table.find(PREMIUM, plrID) then
+        humanoid.DisplayName = "[⭐] " .. player.DisplayName
+
+    elseif EXECUTORS[plrID] then
+        humanoid.DisplayName = "[😎] " .. player.DisplayName
+    end
 end
 
 --========================
@@ -97,18 +120,22 @@ end
 -- INIT
 --========================
 
-for _, plr in ipairs(Players:GetPlayers()) do
-    onCharacterAdded(plr)
-    updateDisplayName(plr)
+local function ImperiumEmojis()
+    for _, player in ipairs(Players:GetPlayers()) do
+        onCharacterAdded(player)
+        updateDisplayName(player)
+    end
 end
+
+LocalPlayer.CharacterAdded:Connect(function()
+    updateDisplayName(LocalPlayer)
+end)
 
 Players.PlayerAdded:Connect(function(player)
     onCharacterAdded(player)
-
-    -- 👀 Reaplicar a todos (clave)
-    task.delay(0.2, function()
-        for _, p in ipairs(Players:GetPlayers()) do
-            updateDisplayName(p)
-        end
-    end)
 end)
+
+local succ, err = pcall(ImperiumEmojis)
+if not succ then
+    warn("> Imperium | Error • While executing Name Emojis: " .. tostring(err))
+end
