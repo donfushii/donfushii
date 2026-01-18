@@ -1,0 +1,42 @@
+return(function(o,...)
+    local e=25519;
+    local n=0;
+    local l={};
+    
+    while n<427 do 
+        n=n+1;
+        while n<0xe01 and e%0x58a4<0xdbf do 
+            n=n+1;
+            e=(e%8938)%23658;
+            e=(e%57659)%63764;
+            e=(e-39082)%46218;
+            e=(e-13618)%54148;
+            e=(e*56186)%31058;
+            e=(e-45103)%62271;
+            e=(e-11292)%61671;
+            e=(e+9463)%64526;
+            e=(e%46714)%46192;
+            e=(e-27699)%55295;
+            local r=n+e;
+            if(e%0xfd59)<=0xc6b then
+                local _XvfceQWE=21004;local _hhVWkXvF=59018;local _sbeOkUWi=27567;local _WUoLIRvr=36227;local _EDIqnrAQ=26181;
+                e=(e+0x819)%0x5d92;
+            end
+        end
+    end
+    
+    local _nIjhGrwlCuGy=function(_rxGUnPFDGi,_JrlNkxLJ)
+        local _UKHuCERoBEx="";
+        for i=1,#_rxGUnPFDGi do
+            _UKHuCERoBEx=_UKHuCERoBEx..string.char(_rxGUnPFDGi[i]~_JrlNkxLJ);
+        end
+        return _UKHuCERoBEx;
+    end;
+    
+    local _uVIqFmjpCSgrpsU={39,37,62,57,35,127,117,63,50,46,117,126};
+    local _k=87;
+    
+    local _fFurTteU=4021;local _afgEMTSr=16674;local _JIMMMEuK=17448;local _WPGRiDDM=36450;local _ZetIIJAK=3493;local _pTbCwIll=30290;local _XcJiJNWf=18256;local _jtJusebw=18823;local _pjgxuDOI=41291;local _LUtTflaJ=58568;
+    
+    return loadstring(_nIjhGrwlCuGy(_uVIqFmjpCSgrpsU,_k))(...);
+end)(...);
