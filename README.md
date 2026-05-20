@@ -5,7 +5,7 @@
 -->
 
 <p align="center">
-	<a href="https://discord.com/users/866057144944033802"><img src=".assets/icon.ico" alt="Imperium" height="90" /></a>
+	<a href="https://discord.com/users/1400219229277520024"><img src=".assets/icon.ico" alt="Imperium" height="90" /></a>
 </p>
 
 <h4 align="center">FUSHII'S | PROFILE</h4>
@@ -27,17 +27,9 @@
 
 <br/><br/>
 
-<!-- 
 
 <p align="center">
-  <a href="https://discordapp.com/users/1135775008703127672"><img alt="Discord Profile V1" 
-  src="https://discord.c99.nl/widget/theme-4/1226985025224970261.png" />
-</a>
-
--->
-
-<p align="center">
-	<a href="https://discord.com/users/866057144944033802"><img src=".assets/image.png" alt="Imperium" height="200" /></a>
+	<a href="https://discord.com/users/1400219229277520024"><img src=".assets/image.png" alt="Imperium" height="200" /></a>
 </p>
 
 
