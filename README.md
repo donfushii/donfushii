@@ -25,9 +25,6 @@
 **_1. Im a user like anyone else, you can call me Fushii._** ^^
 > [!]: Currently I really like using the programming language "Python" & "LUA". I have several projects in these languages that haven’t been released yet.
 
-**_2. Would you like to contact me?_**
-> [!]: You can Add me on Discord at [@donfushii](https://discord.com/users/866057144944033802) Or simply click on the image below to reach me.
-
 <br/><br/>
 
 <!-- 
@@ -63,4 +60,4 @@
 ## • My projects:
 
 **_1. What project are you working on?_**
-> [A]: Right now, I’m working on [Imperium](https://github.com/Imperium-Development/Imperium/tree/main). A free Script for Roblox. This project has been in development for a good while and was created with good intentions and is intended for PERSONAL use only even though it’s now public.
+> [A]: Right now, I’m working on nothing xD.
