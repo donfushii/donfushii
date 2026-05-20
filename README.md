@@ -15,8 +15,7 @@
 
 <p align="center">
   <a href="#-who-i-am">Who i am</a> •
-	<a href="#-people-who-see-my-profile">Views</a> •
-	<a href="#-my-projects">Projects</a>
+	<a href="#-people-who-see-my-profile">Views</a>
 </p>
 <br/>
 
